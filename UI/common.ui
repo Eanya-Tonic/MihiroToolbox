@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>753</width>
-    <height>522</height>
+    <width>787</width>
+    <height>619</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -46,8 +46,8 @@
     <rect>
      <x>20</x>
      <y>70</y>
-     <width>680</width>
-     <height>285</height>
+     <width>321</width>
+     <height>261</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="File">
@@ -186,12 +186,146 @@
          </item>
         </layout>
        </item>
-       <item row="3" column="0">
-        <widget class="BodyLabel" name="BodyLabel">
-         <property name="text">
-          <string>Body label</string>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="">
+   <property name="geometry">
+    <rect>
+     <x>360</x>
+     <y>70</y>
+     <width>322</width>
+     <height>259</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" name="gridLayout_6">
+    <item row="0" column="0">
+     <widget class="SubtitleLabel" name="FileTitle_2">
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <family>微软雅黑</family>
+        <pointsize>15</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>音频参数</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="SimpleCardWidget" name="SimpleCardWidget">
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <property name="spacing">
+        <number>16</number>
+       </property>
+       <property name="leftMargin">
+        <number>16</number>
+       </property>
+       <property name="topMargin">
+        <number>16</number>
+       </property>
+       <property name="rightMargin">
+        <number>16</number>
+       </property>
+       <property name="bottomMargin">
+        <number>16</number>
+       </property>
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_4">
+         <item>
+          <layout class="QVBoxLayout" name="verticalLayout">
+           <item>
+            <widget class="BodyLabel" name="BodyLabel">
+             <property name="text">
+              <string>音频码率(Kbps)</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="SpinBox" name="SpinBox"/>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QVBoxLayout" name="verticalLayout_2">
+           <item>
+            <widget class="BodyLabel" name="BodyLabel_2">
+             <property name="text">
+              <string>帧率</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="SpinBox" name="SpinBox_2"/>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QVBoxLayout" name="verticalLayout_3">
+           <item>
+            <widget class="BodyLabel" name="BodyLabel_3">
+             <property name="text">
+              <string>CRF</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="DoubleSpinBox" name="DoubleSpinBox"/>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_5">
+         <property name="spacing">
+          <number>25</number>
          </property>
-        </widget>
+         <property name="topMargin">
+          <number>36</number>
+         </property>
+         <property name="bottomMargin">
+          <number>36</number>
+         </property>
+         <item>
+          <layout class="QGridLayout" name="gridLayout_5">
+           <item row="0" column="0">
+            <widget class="BodyLabel" name="BodyLabel_4">
+             <property name="text">
+              <string>时间</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="SpinBox" name="SpinBox_3"/>
+           </item>
+           <item row="1" column="1">
+            <widget class="BodyLabel" name="BodyLabel_5">
+             <property name="text">
+              <string>秒</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="PrimaryPushButton" name="PrimaryPushButton">
+           <property name="text">
+            <string>开始压制</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
        </item>
       </layout>
      </widget>
@@ -203,6 +337,11 @@
   <customwidget>
    <class>PushButton</class>
    <extends>QPushButton</extends>
+   <header>qfluentwidgets</header>
+  </customwidget>
+  <customwidget>
+   <class>PrimaryPushButton</class>
+   <extends>PushButton</extends>
    <header>qfluentwidgets</header>
   </customwidget>
   <customwidget>
@@ -235,6 +374,16 @@
   <customwidget>
    <class>LineEdit</class>
    <extends>QLineEdit</extends>
+   <header>qfluentwidgets</header>
+  </customwidget>
+  <customwidget>
+   <class>SpinBox</class>
+   <extends>QSpinBox</extends>
+   <header>qfluentwidgets</header>
+  </customwidget>
+  <customwidget>
+   <class>DoubleSpinBox</class>
+   <extends>QDoubleSpinBox</extends>
    <header>qfluentwidgets</header>
   </customwidget>
  </customwidgets>
