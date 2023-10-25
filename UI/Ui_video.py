@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_Video(object):
     def setupUi(self, Video):
         Video.setObjectName("Video")
-        Video.resize(750, 807)
+        Video.resize(750, 826)
         self.gridLayout_7 = QtWidgets.QGridLayout(Video)
         self.gridLayout_7.setObjectName("gridLayout_7")
         self.VideoBox = QtWidgets.QGridLayout()
@@ -62,6 +62,7 @@ class Ui_Video(object):
         self.VIdeoIn.addWidget(self.inputLabel, 0, 0, 1, 1)
         self.InputLine = LineEdit(self.FileBox)
         self.InputLine.setEnabled(True)
+        self.InputLine.setClearButtonEnabled(True)
         self.InputLine.setObjectName("InputLine")
         self.VIdeoIn.addWidget(self.InputLine, 1, 0, 1, 1)
         self.InputButton = PushButton(self.FileBox)
@@ -81,6 +82,7 @@ class Ui_Video(object):
         self.VideoOut.addWidget(self.OutputLabel, 0, 0, 1, 1)
         self.OutputLine = LineEdit(self.FileBox)
         self.OutputLine.setEnabled(True)
+        self.OutputLine.setClearButtonEnabled(True)
         self.OutputLine.setObjectName("OutputLine")
         self.VideoOut.addWidget(self.OutputLine, 1, 0, 1, 1)
         self.Outputbutton = PushButton(self.FileBox)
@@ -100,6 +102,7 @@ class Ui_Video(object):
         self.Text.addWidget(self.TextLabel, 0, 0, 1, 1)
         self.TextLine = LineEdit(self.FileBox)
         self.TextLine.setEnabled(True)
+        self.TextLine.setClearButtonEnabled(True)
         self.TextLine.setObjectName("TextLine")
         self.Text.addWidget(self.TextLine, 1, 0, 1, 1)
         self.Outputbutton_2 = PushButton(self.FileBox)
