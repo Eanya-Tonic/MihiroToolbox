@@ -31,27 +31,359 @@
      <property name="spacing">
       <number>16</number>
      </property>
-     <item row="0" column="0">
-      <widget class="LargeTitleLabel" name="VideoTitile">
-       <property name="maximumSize">
-        <size>
-         <width>16777215</width>
-         <height>45</height>
-        </size>
-       </property>
-       <property name="font">
-        <font>
-         <family>微软雅黑</family>
-         <pointsize>30</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-         <kerning>true</kerning>
-        </font>
-       </property>
-       <property name="text">
-        <string>视频</string>
-       </property>
-      </widget>
+     <item row="2" column="1">
+      <layout class="QVBoxLayout" name="parms">
+       <item>
+        <widget class="SubtitleLabel" name="ParmsTitle">
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>25</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>微软雅黑</family>
+           <pointsize>15</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>参数</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="SimpleCardWidget" name="ParmsBox">
+         <layout class="QHBoxLayout" name="horizontalLayout_6">
+          <property name="spacing">
+           <number>16</number>
+          </property>
+          <property name="leftMargin">
+           <number>16</number>
+          </property>
+          <property name="topMargin">
+           <number>36</number>
+          </property>
+          <property name="rightMargin">
+           <number>16</number>
+          </property>
+          <property name="bottomMargin">
+           <number>16</number>
+          </property>
+          <item>
+           <layout class="QVBoxLayout" name="ParmsTypeBox">
+            <item>
+             <widget class="RadioButton" name="ButtonCRF">
+              <property name="font">
+               <font>
+                <family>Segoe UI</family>
+                <pointsize>-1</pointsize>
+                <weight>50</weight>
+                <italic>false</italic>
+                <bold>false</bold>
+               </font>
+              </property>
+              <property name="acceptDrops">
+               <bool>false</bool>
+              </property>
+              <property name="text">
+               <string>CRF(固定码率因子)</string>
+              </property>
+              <property name="checked">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="RadioButton" name="ButtonVBR">
+              <property name="font">
+               <font>
+                <family>Segoe UI</family>
+                <pointsize>-1</pointsize>
+                <weight>50</weight>
+                <italic>false</italic>
+                <bold>false</bold>
+               </font>
+              </property>
+              <property name="text">
+               <string>VBR(可变码率控制)</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="RadioButton" name="Button2pass">
+              <property name="font">
+               <font>
+                <family>Segoe UI</family>
+                <pointsize>-1</pointsize>
+                <weight>50</weight>
+                <italic>false</italic>
+                <bold>false</bold>
+               </font>
+              </property>
+              <property name="text">
+               <string>2Pass</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QGridLayout" name="ParmsSetBox">
+            <property name="topMargin">
+             <number>15</number>
+            </property>
+            <property name="bottomMargin">
+             <number>35</number>
+            </property>
+            <property name="spacing">
+             <number>10</number>
+            </property>
+            <item row="0" column="0">
+             <widget class="BodyLabel" name="ParmsSetTitle">
+              <property name="text">
+               <string>CRF</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="DoubleSpinBox" name="ParmsNum">
+              <property name="maximum">
+               <double>9999999.000000000000000</double>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="1">
+             <widget class="BodyLabel" name="KbpsLabel">
+              <property name="text">
+               <string>Kbps</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item row="2" column="0">
+      <layout class="QVBoxLayout" name="Encode">
+       <item>
+        <widget class="SubtitleLabel" name="EncodeTitle">
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>25</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>微软雅黑</family>
+           <pointsize>15</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>编码</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="SimpleCardWidget" name="EncodeBox">
+         <layout class="QGridLayout" name="gridLayout_9">
+          <property name="leftMargin">
+           <number>16</number>
+          </property>
+          <property name="topMargin">
+           <number>16</number>
+          </property>
+          <property name="rightMargin">
+           <number>16</number>
+          </property>
+          <property name="bottomMargin">
+           <number>16</number>
+          </property>
+          <item row="0" column="0">
+           <layout class="QVBoxLayout" name="InnerEncodeBox">
+            <property name="spacing">
+             <number>16</number>
+            </property>
+            <item>
+             <layout class="QHBoxLayout" name="upperEncodeBox">
+              <item>
+               <layout class="QHBoxLayout" name="Encoder">
+                <item>
+                 <widget class="BodyLabel" name="EncoderText">
+                  <property name="text">
+                   <string>编码器</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="ComboBox" name="EncoderType">
+                  <property name="text">
+                   <string>x264</string>
+                  </property>
+                  <property name="checkable">
+                   <bool>false</bool>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="BitDepth">
+                <item>
+                 <widget class="BodyLabel" name="DepthText">
+                  <property name="text">
+                   <string>位深度</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="ComboBox" name="DepthChoice">
+                  <property name="text">
+                   <string>8bit</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QVBoxLayout" name="BottomEncodeBox">
+              <item>
+               <layout class="QHBoxLayout" name="StartFrame">
+                <property name="spacing">
+                 <number>16</number>
+                </property>
+                <item>
+                 <widget class="BodyLabel" name="StartFrameText">
+                  <property name="text">
+                   <string>起始帧</string>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignCenter</set>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="SpinBox" name="StartFrameNum"/>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="TotalFrame">
+                <property name="spacing">
+                 <number>16</number>
+                </property>
+                <item>
+                 <widget class="BodyLabel" name="TotalFrameText">
+                  <property name="text">
+                   <string>编码帧数</string>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignCenter</set>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="SpinBox" name="TotalFrameNum"/>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item row="3" column="1">
+      <layout class="QVBoxLayout" name="Start">
+       <item>
+        <widget class="SubtitleLabel" name="StartTitle">
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>25</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>微软雅黑</family>
+           <pointsize>15</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>压制</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="SimpleCardWidget" name="StartBox">
+         <layout class="QGridLayout" name="gridLayout">
+          <property name="leftMargin">
+           <number>16</number>
+          </property>
+          <property name="rightMargin">
+           <number>16</number>
+          </property>
+          <item row="0" column="0">
+           <widget class="CheckBox" name="AutoPowerOffButton">
+            <property name="text">
+             <string>完成后自动关机</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0" colspan="2">
+           <widget class="PrimaryPushButton" name="StartButton">
+            <property name="text">
+             <string>开始压制</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <layout class="QHBoxLayout" name="horizontalLayout">
+            <property name="spacing">
+             <number>6</number>
+            </property>
+            <item>
+             <widget class="BodyLabel" name="HardacclerLabel">
+              <property name="text">
+               <string>硬件加速</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="ComboBox" name="HardAccler">
+              <property name="toolTip">
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;CRF不支持硬件加速编码&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item row="2" column="0" colspan="2">
+           <widget class="IndeterminateProgressBar" name="ProgressBar">
+            <property name="enabled">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
      </item>
      <item row="1" column="0" colspan="2">
       <layout class="QVBoxLayout" name="File">
@@ -204,281 +536,6 @@
        </item>
       </layout>
      </item>
-     <item row="2" column="0">
-      <layout class="QVBoxLayout" name="Encode">
-       <item>
-        <widget class="SubtitleLabel" name="EncodeTitle">
-         <property name="maximumSize">
-          <size>
-           <width>16777215</width>
-           <height>25</height>
-          </size>
-         </property>
-         <property name="font">
-          <font>
-           <family>微软雅黑</family>
-           <pointsize>15</pointsize>
-           <weight>75</weight>
-           <bold>true</bold>
-          </font>
-         </property>
-         <property name="text">
-          <string>编码</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="SimpleCardWidget" name="EncodeBox">
-         <layout class="QGridLayout" name="gridLayout_9">
-          <property name="leftMargin">
-           <number>16</number>
-          </property>
-          <property name="topMargin">
-           <number>16</number>
-          </property>
-          <property name="rightMargin">
-           <number>16</number>
-          </property>
-          <property name="bottomMargin">
-           <number>16</number>
-          </property>
-          <item row="0" column="0">
-           <layout class="QVBoxLayout" name="InnerEncodeBox">
-            <property name="spacing">
-             <number>16</number>
-            </property>
-            <item>
-             <layout class="QHBoxLayout" name="upperEncodeBox">
-              <item>
-               <layout class="QHBoxLayout" name="Encoder">
-                <item>
-                 <widget class="BodyLabel" name="EncoderText">
-                  <property name="text">
-                   <string>编码器</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="ComboBox" name="EncoderType">
-                  <property name="text">
-                   <string>x264</string>
-                  </property>
-                  <property name="checkable">
-                   <bool>false</bool>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
-              </item>
-              <item>
-               <layout class="QHBoxLayout" name="BitDepth">
-                <item>
-                 <widget class="BodyLabel" name="DepthText">
-                  <property name="text">
-                   <string>位深度</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="ComboBox" name="DepthChoice">
-                  <property name="text">
-                   <string>8bit</string>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
-              </item>
-             </layout>
-            </item>
-            <item>
-             <layout class="QVBoxLayout" name="BottomEncodeBox">
-              <item>
-               <layout class="QHBoxLayout" name="StartFrame">
-                <property name="spacing">
-                 <number>16</number>
-                </property>
-                <item>
-                 <widget class="BodyLabel" name="StartFrameText">
-                  <property name="text">
-                   <string>起始帧</string>
-                  </property>
-                  <property name="alignment">
-                   <set>Qt::AlignCenter</set>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="SpinBox" name="StartFrameNum"/>
-                </item>
-               </layout>
-              </item>
-              <item>
-               <layout class="QHBoxLayout" name="TotalFrame">
-                <property name="spacing">
-                 <number>16</number>
-                </property>
-                <item>
-                 <widget class="BodyLabel" name="TotalFrameText">
-                  <property name="text">
-                   <string>编码帧数</string>
-                  </property>
-                  <property name="alignment">
-                   <set>Qt::AlignCenter</set>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="SpinBox" name="TotalFrameNum"/>
-                </item>
-               </layout>
-              </item>
-             </layout>
-            </item>
-           </layout>
-          </item>
-         </layout>
-        </widget>
-       </item>
-      </layout>
-     </item>
-     <item row="2" column="1">
-      <layout class="QVBoxLayout" name="parms">
-       <item>
-        <widget class="SubtitleLabel" name="ParmsTitle">
-         <property name="maximumSize">
-          <size>
-           <width>16777215</width>
-           <height>25</height>
-          </size>
-         </property>
-         <property name="font">
-          <font>
-           <family>微软雅黑</family>
-           <pointsize>15</pointsize>
-           <weight>75</weight>
-           <bold>true</bold>
-          </font>
-         </property>
-         <property name="text">
-          <string>参数</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="SimpleCardWidget" name="ParmsBox">
-         <layout class="QHBoxLayout" name="horizontalLayout_6">
-          <property name="spacing">
-           <number>16</number>
-          </property>
-          <property name="leftMargin">
-           <number>16</number>
-          </property>
-          <property name="topMargin">
-           <number>36</number>
-          </property>
-          <property name="rightMargin">
-           <number>16</number>
-          </property>
-          <property name="bottomMargin">
-           <number>16</number>
-          </property>
-          <item>
-           <layout class="QVBoxLayout" name="ParmsTypeBox">
-            <item>
-             <widget class="RadioButton" name="ButtonCRF">
-              <property name="font">
-               <font>
-                <family>Segoe UI</family>
-                <pointsize>-1</pointsize>
-                <weight>50</weight>
-                <italic>false</italic>
-                <bold>false</bold>
-               </font>
-              </property>
-              <property name="acceptDrops">
-               <bool>false</bool>
-              </property>
-              <property name="text">
-               <string>CRF(固定码率因子)</string>
-              </property>
-              <property name="checked">
-               <bool>true</bool>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="RadioButton" name="ButtonVBR">
-              <property name="font">
-               <font>
-                <family>Segoe UI</family>
-                <pointsize>-1</pointsize>
-                <weight>50</weight>
-                <italic>false</italic>
-                <bold>false</bold>
-               </font>
-              </property>
-              <property name="text">
-               <string>VBR(可变码率控制)</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="RadioButton" name="Button2pass">
-              <property name="font">
-               <font>
-                <family>Segoe UI</family>
-                <pointsize>-1</pointsize>
-                <weight>50</weight>
-                <italic>false</italic>
-                <bold>false</bold>
-               </font>
-              </property>
-              <property name="text">
-               <string>2Pass</string>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-          <item>
-           <layout class="QGridLayout" name="ParmsSetBox">
-            <property name="topMargin">
-             <number>15</number>
-            </property>
-            <property name="bottomMargin">
-             <number>35</number>
-            </property>
-            <property name="spacing">
-             <number>10</number>
-            </property>
-            <item row="0" column="0">
-             <widget class="BodyLabel" name="ParmsSetTitle">
-              <property name="text">
-               <string>CRF</string>
-              </property>
-             </widget>
-            </item>
-            <item row="1" column="0">
-             <widget class="DoubleSpinBox" name="ParmsNum">
-              <property name="maximum">
-               <double>9999999.000000000000000</double>
-              </property>
-             </widget>
-            </item>
-            <item row="1" column="1">
-             <widget class="BodyLabel" name="KbpsLabel">
-              <property name="text">
-               <string>Kbps</string>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-         </layout>
-        </widget>
-       </item>
-      </layout>
-     </item>
      <item row="3" column="0">
       <layout class="QVBoxLayout" name="Resolution">
        <item>
@@ -573,65 +630,27 @@
        </item>
       </layout>
      </item>
-     <item row="3" column="1">
-      <layout class="QVBoxLayout" name="Start">
-       <item>
-        <widget class="SubtitleLabel" name="StartTitle">
-         <property name="maximumSize">
-          <size>
-           <width>16777215</width>
-           <height>25</height>
-          </size>
-         </property>
-         <property name="font">
-          <font>
-           <family>微软雅黑</family>
-           <pointsize>15</pointsize>
-           <weight>75</weight>
-           <bold>true</bold>
-          </font>
-         </property>
-         <property name="text">
-          <string>压制</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="SimpleCardWidget" name="StartBox">
-         <layout class="QGridLayout" name="gridLayout_5">
-          <property name="leftMargin">
-           <number>16</number>
-          </property>
-          <property name="topMargin">
-           <number>36</number>
-          </property>
-          <property name="rightMargin">
-           <number>16</number>
-          </property>
-          <property name="bottomMargin">
-           <number>36</number>
-          </property>
-          <property name="verticalSpacing">
-           <number>25</number>
-          </property>
-          <item row="0" column="0">
-           <widget class="CheckBox" name="AutoPowerOffButton">
-            <property name="text">
-             <string>完成后自动关机</string>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="0">
-           <widget class="PrimaryPushButton" name="StartButton">
-            <property name="text">
-             <string>开始压制</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </widget>
-       </item>
-      </layout>
+     <item row="0" column="0">
+      <widget class="LargeTitleLabel" name="VideoTitile">
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>45</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <family>微软雅黑</family>
+         <pointsize>30</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+         <kerning>true</kerning>
+        </font>
+       </property>
+       <property name="text">
+        <string>视频</string>
+       </property>
+      </widget>
      </item>
     </layout>
    </item>
@@ -693,6 +712,11 @@
   <customwidget>
    <class>LargeTitleLabel</class>
    <extends>QLabel</extends>
+   <header>qfluentwidgets</header>
+  </customwidget>
+  <customwidget>
+   <class>IndeterminateProgressBar</class>
+   <extends>QProgressBar</extends>
    <header>qfluentwidgets</header>
   </customwidget>
   <customwidget>

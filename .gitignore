@@ -35,3 +35,7 @@ PySide6_Fluent_Widgets.egg-info/
 
 # 忽略PyQt工具包
 PyQt-Fluent-Widgets/
+tools/ffmpeg.exe
+tools/ffplay.exe
+tools/ffprobe.exe
+ffmpeg2pass-0.log.mbtree
