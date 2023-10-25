@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Form</class>
- <widget class="QWidget" name="Form">
+ <class>Video</class>
+ <widget class="QWidget" name="Video">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -15,12 +15,12 @@
   </property>
   <layout class="QGridLayout" name="gridLayout_7">
    <item row="0" column="0">
-    <layout class="QGridLayout" name="gridLayout_6">
+    <layout class="QGridLayout" name="VideoBox">
      <property name="leftMargin">
       <number>26</number>
      </property>
      <property name="topMargin">
-      <number>26</number>
+      <number>45</number>
      </property>
      <property name="rightMargin">
       <number>26</number>
@@ -92,7 +92,7 @@
            <number>16</number>
           </property>
           <item row="0" column="0">
-           <layout class="QGridLayout" name="gridLayout">
+           <layout class="QGridLayout" name="VIdeoIn">
             <item row="0" column="0">
              <widget class="BodyLabel" name="inputLabel">
               <property name="font">
@@ -125,7 +125,7 @@
            </layout>
           </item>
           <item row="1" column="0">
-           <layout class="QGridLayout" name="gridLayout_2">
+           <layout class="QGridLayout" name="VideoOut">
             <item row="0" column="0">
              <widget class="BodyLabel" name="OutputLabel">
               <property name="font">
@@ -158,7 +158,7 @@
            </layout>
           </item>
           <item row="2" column="0">
-           <layout class="QGridLayout" name="gridLayout_3">
+           <layout class="QGridLayout" name="Text">
             <item row="0" column="0">
              <widget class="BodyLabel" name="TextLabel">
               <property name="font">
@@ -198,7 +198,7 @@
      <item row="2" column="0">
       <layout class="QVBoxLayout" name="Encode">
        <item>
-        <widget class="SubtitleLabel" name="FileTitle_3">
+        <widget class="SubtitleLabel" name="EncodeTitle">
          <property name="maximumSize">
           <size>
            <width>16777215</width>
@@ -219,7 +219,7 @@
         </widget>
        </item>
        <item>
-        <widget class="SimpleCardWidget" name="SimpleCardWidget">
+        <widget class="SimpleCardWidget" name="EncodeBox">
          <layout class="QGridLayout" name="gridLayout_9">
           <property name="leftMargin">
            <number>16</number>
@@ -234,23 +234,23 @@
            <number>16</number>
           </property>
           <item row="0" column="0">
-           <layout class="QVBoxLayout" name="verticalLayout_2">
+           <layout class="QVBoxLayout" name="InnerEncodeBox">
             <property name="spacing">
              <number>16</number>
             </property>
             <item>
-             <layout class="QHBoxLayout" name="horizontalLayout_5">
+             <layout class="QHBoxLayout" name="upperEncodeBox">
               <item>
-               <layout class="QHBoxLayout" name="horizontalLayout">
+               <layout class="QHBoxLayout" name="Encoder">
                 <item>
-                 <widget class="BodyLabel" name="BodyLabel">
+                 <widget class="BodyLabel" name="EncoderText">
                   <property name="text">
                    <string>编码器</string>
                   </property>
                  </widget>
                 </item>
                 <item>
-                 <widget class="ComboBox" name="ComboBox">
+                 <widget class="ComboBox" name="EncoderType">
                   <property name="text">
                    <string>x264</string>
                   </property>
@@ -262,16 +262,16 @@
                </layout>
               </item>
               <item>
-               <layout class="QHBoxLayout" name="horizontalLayout_2">
+               <layout class="QHBoxLayout" name="BitDepth">
                 <item>
-                 <widget class="BodyLabel" name="BodyLabel_3">
+                 <widget class="BodyLabel" name="DepthText">
                   <property name="text">
                    <string>位深度</string>
                   </property>
                  </widget>
                 </item>
                 <item>
-                 <widget class="ComboBox" name="ComboBox_2">
+                 <widget class="ComboBox" name="DepthChoice">
                   <property name="text">
                    <string>8bit</string>
                   </property>
@@ -282,14 +282,14 @@
              </layout>
             </item>
             <item>
-             <layout class="QVBoxLayout" name="verticalLayout">
+             <layout class="QVBoxLayout" name="BottomEncodeBox">
               <item>
-               <layout class="QHBoxLayout" name="horizontalLayout_3">
+               <layout class="QHBoxLayout" name="StartFrame">
                 <property name="spacing">
                  <number>16</number>
                 </property>
                 <item>
-                 <widget class="BodyLabel" name="BodyLabel_2">
+                 <widget class="BodyLabel" name="StartFrameText">
                   <property name="text">
                    <string>起始帧</string>
                   </property>
@@ -299,17 +299,17 @@
                  </widget>
                 </item>
                 <item>
-                 <widget class="SpinBox" name="SpinBox"/>
+                 <widget class="SpinBox" name="StartFrameNum"/>
                 </item>
                </layout>
               </item>
               <item>
-               <layout class="QHBoxLayout" name="horizontalLayout_4">
+               <layout class="QHBoxLayout" name="TotalFrame">
                 <property name="spacing">
                  <number>16</number>
                 </property>
                 <item>
-                 <widget class="BodyLabel" name="BodyLabel_4">
+                 <widget class="BodyLabel" name="TotalFrameText">
                   <property name="text">
                    <string>编码帧数</string>
                   </property>
@@ -319,7 +319,7 @@
                  </widget>
                 </item>
                 <item>
-                 <widget class="SpinBox" name="SpinBox_2"/>
+                 <widget class="SpinBox" name="TotalFrameNum"/>
                 </item>
                </layout>
               </item>
@@ -335,7 +335,7 @@
      <item row="2" column="1">
       <layout class="QVBoxLayout" name="parms">
        <item>
-        <widget class="SubtitleLabel" name="FileTitle_4">
+        <widget class="SubtitleLabel" name="ParmsTitle">
          <property name="maximumSize">
           <size>
            <width>16777215</width>
@@ -356,7 +356,7 @@
         </widget>
        </item>
        <item>
-        <widget class="SimpleCardWidget" name="SimpleCardWidget_2">
+        <widget class="SimpleCardWidget" name="ParmsBox">
          <layout class="QHBoxLayout" name="horizontalLayout_6">
           <property name="spacing">
            <number>16</number>
@@ -374,9 +374,9 @@
            <number>16</number>
           </property>
           <item>
-           <layout class="QVBoxLayout" name="verticalLayout_3">
+           <layout class="QVBoxLayout" name="ParmsTypeBox">
             <item>
-             <widget class="RadioButton" name="RadioButton">
+             <widget class="RadioButton" name="ButtonCRF">
               <property name="font">
                <font>
                 <family>Segoe UI</family>
@@ -398,7 +398,7 @@
              </widget>
             </item>
             <item>
-             <widget class="RadioButton" name="RadioButton_2">
+             <widget class="RadioButton" name="ButtonVBR">
               <property name="font">
                <font>
                 <family>Segoe UI</family>
@@ -414,7 +414,7 @@
              </widget>
             </item>
             <item>
-             <widget class="RadioButton" name="RadioButton_3">
+             <widget class="RadioButton" name="Button2pass">
               <property name="font">
                <font>
                 <family>Segoe UI</family>
@@ -432,7 +432,7 @@
            </layout>
           </item>
           <item>
-           <layout class="QGridLayout" name="gridLayout_10">
+           <layout class="QGridLayout" name="ParmsSetBox">
             <property name="topMargin">
              <number>15</number>
             </property>
@@ -443,17 +443,17 @@
              <number>10</number>
             </property>
             <item row="0" column="0">
-             <widget class="BodyLabel" name="BodyLabel_5">
+             <widget class="BodyLabel" name="ParmsSetTitle">
               <property name="text">
                <string>CRF</string>
               </property>
              </widget>
             </item>
             <item row="1" column="0">
-             <widget class="DoubleSpinBox" name="DoubleSpinBox"/>
+             <widget class="DoubleSpinBox" name="ParmsNum"/>
             </item>
             <item row="1" column="1">
-             <widget class="BodyLabel" name="BodyLabel_6">
+             <widget class="BodyLabel" name="KbpsLabel">
               <property name="text">
                <string>Kbps</string>
               </property>
@@ -467,9 +467,9 @@
       </layout>
      </item>
      <item row="3" column="0">
-      <layout class="QVBoxLayout" name="verticalLayout_5">
+      <layout class="QVBoxLayout" name="Resolution">
        <item>
-        <widget class="SubtitleLabel" name="FileTitle_5">
+        <widget class="SubtitleLabel" name="ResolutionTitle">
          <property name="maximumSize">
           <size>
            <width>16777215</width>
@@ -490,10 +490,10 @@
         </widget>
        </item>
        <item>
-        <widget class="SimpleCardWidget" name="SimpleCardWidget_3">
+        <widget class="SimpleCardWidget" name="ResolutionBox">
          <layout class="QGridLayout" name="gridLayout_11">
           <item row="0" column="0">
-           <layout class="QVBoxLayout" name="verticalLayout_4">
+           <layout class="QVBoxLayout" name="InnerResolutonBox">
             <property name="leftMargin">
              <number>16</number>
             </property>
@@ -507,7 +507,7 @@
              <number>16</number>
             </property>
             <item>
-             <widget class="SwitchButton" name="SwitchButton">
+             <widget class="SwitchButton" name="IfEnableSwitch">
               <property name="text">
                <string>保持原分辨率</string>
               </property>
@@ -520,9 +520,9 @@
              </widget>
             </item>
             <item>
-             <layout class="QHBoxLayout" name="horizontalLayout_7">
+             <layout class="QHBoxLayout" name="WidthBox">
               <item>
-               <widget class="BodyLabel" name="BodyLabel_7">
+               <widget class="BodyLabel" name="WidthText">
                 <property name="text">
                  <string>宽度</string>
                 </property>
@@ -532,14 +532,14 @@
                </widget>
               </item>
               <item>
-               <widget class="SpinBox" name="SpinBox_3"/>
+               <widget class="SpinBox" name="WidthNum"/>
               </item>
              </layout>
             </item>
             <item>
-             <layout class="QHBoxLayout" name="horizontalLayout_8">
+             <layout class="QHBoxLayout" name="HeightBox">
               <item>
-               <widget class="BodyLabel" name="BodyLabel_8">
+               <widget class="BodyLabel" name="HeightText">
                 <property name="text">
                  <string>高度</string>
                 </property>
@@ -549,7 +549,7 @@
                </widget>
               </item>
               <item>
-               <widget class="SpinBox" name="SpinBox_4"/>
+               <widget class="SpinBox" name="HeightNum"/>
               </item>
              </layout>
             </item>
@@ -561,9 +561,9 @@
       </layout>
      </item>
      <item row="3" column="1">
-      <layout class="QVBoxLayout" name="verticalLayout_6">
+      <layout class="QVBoxLayout" name="Start">
        <item>
-        <widget class="SubtitleLabel" name="FileTitle_6">
+        <widget class="SubtitleLabel" name="StartTitle">
          <property name="maximumSize">
           <size>
            <width>16777215</width>
@@ -584,7 +584,7 @@
         </widget>
        </item>
        <item>
-        <widget class="SimpleCardWidget" name="SimpleCardWidget_4">
+        <widget class="SimpleCardWidget" name="StartBox">
          <layout class="QGridLayout" name="gridLayout_5">
           <property name="leftMargin">
            <number>16</number>
@@ -602,14 +602,14 @@
            <number>25</number>
           </property>
           <item row="0" column="0">
-           <widget class="CheckBox" name="CheckBox">
+           <widget class="CheckBox" name="AutoPowerOffButton">
             <property name="text">
              <string>完成后自动关机</string>
             </property>
            </widget>
           </item>
           <item row="1" column="0">
-           <widget class="PrimaryPushButton" name="PrimaryPushButton">
+           <widget class="PrimaryPushButton" name="StartButton">
             <property name="text">
              <string>开始压制</string>
             </property>
