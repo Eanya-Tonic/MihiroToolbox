@@ -15,13 +15,27 @@ class VideoInterface(QWidget, Ui_Video):
         super().__init__(parent)
         self.setupUi(self)
 
+        # 编码选项
+        self.EncoderType.addItem('x264')
+        self.EncoderType.addItem('x265')
+
+        self.DepthChoice.addItem('8bit')
+        self.DepthChoice.addItem('10bit')
+
+        # 文件选项
         self.InputButton.clicked.connect(
             partial(self.FileSelect, self.InputLine, self.OutputLine))
         self.Outputbutton.clicked.connect(
             partial(self.FileSelect, self.OutputLine, 0))
         self.Outputbutton_2.clicked.connect(
             partial(self.FileSelect, self.TextLine, 0))
-
+        
+        # 分辨率选项
+        self.WidthNum.setDisabled(1)
+        self.HeightNum.setDisabled(1)
+        self.IfEnableSwitch.checkedChanged.connect(self.ResolutionChange)
+        
+    # 文件选择函数
     def FileSelect(self, TargetLine, AutoFill):
         dir = QFileDialog()
         dir.setDirectory(os.getcwd())
@@ -34,3 +48,12 @@ class VideoInterface(QWidget, Ui_Video):
                 FilePath = os.path.splitext(FilePath[0])[0]
                 NewFilePath = FilePath + '_output' + FileExt
                 AutoFill.setText(NewFilePath)
+    
+    # 自定义分辨率控制            
+    def ResolutionChange(self):
+        if (self.IfEnableSwitch.checked):
+            self.WidthNum.setDisabled(0)
+            self.HeightNum.setDisabled(0)
+        else:
+            self.WidthNum.setDisabled(1)
+            self.HeightNum.setDisabled(1)

@@ -31,7 +31,7 @@ class MihiroToolBox(SplitFluentWindow):
         self.CommonInterface = CommonInterface(self)
         self.addSubInterface(self.CommonInterface, FluentIcon.LABEL, '常用')
         
-        # 设置封装子界面
+        # 添加封装子界面
         self.PackageInterface = PackageInterface(self)
         self.addSubInterface(self.PackageInterface, FluentIcon.MEDIA, '封装')
 
