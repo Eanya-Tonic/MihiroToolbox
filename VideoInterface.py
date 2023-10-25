@@ -22,8 +22,8 @@ class VideoInterface(QWidget, Ui_Video):
         self.EncoderType.addItem('x264')
         self.EncoderType.addItem('x265')
 
-        self.DepthChoice.addItem('8bit')
-        self.DepthChoice.addItem('10bit')
+        self.DepthChoice.addItem('压制音频')
+        self.DepthChoice.addItem('无音频')
 
         # 编码参数
         self.KbpsLabel.setVisible(0)
@@ -122,7 +122,14 @@ class VideoInterface(QWidget, Ui_Video):
         ProcessCmd = "tools\\ffmpeg -hide_banner -i \"" + self.InputLine.text() + \
             "\" -y "
         ProcessCmd0 = ""
+        
+        # 设置音频
+        if(self.DepthChoice.text() == "压制音频"):
+            ProcessCmd += ""
+        else:
+            ProcessCmd += "-an "
 
+        # 硬件加速编码器
         if(self.EncoderType.text() == 'x264'):
             if(self.HardAccler.text() == "软解"):
                 ProcessCmd += "-vcodec libx264 "
@@ -142,6 +149,18 @@ class VideoInterface(QWidget, Ui_Video):
             elif(self.HardAccler.text() == "Intel"):
                 ProcessCmd += "-vcodec hevc_qsv "
 
+        # 自定义分辨率
+        if(self.IfEnableSwitch.checked):
+            ProcessCmd += "-s " + \
+                str(self.WidthNum.value()) + "x" + \
+                str(self.HeightNum.value()) + " "
+
+        # 按帧数截取视频
+        if(self.TotalFrameNum.value() != 0):
+            ProcessCmd += "-vf \"select=between(n\\," + str(
+                self.StartFrameNum.value()) + "\\,"+str(self.TotalFrameNum.value())+")\" "
+
+        # 切换CRF和VBR参数
         if(self.ButtonCRF.isChecked()):
             ProcessCmd += "-crf " + str(self.ParmsNum.value()) + " "
         elif(self.ButtonVBR.isChecked()):
@@ -153,38 +172,49 @@ class VideoInterface(QWidget, Ui_Video):
 
             ProcessCmd += "-b:v " + str(self.ParmsNum.value()) + "K -pass 2 "
 
-        thread_01 = Thread(target=self.CmdThread, args=(ProcessCmd0, ProcessCmd))
+        thread_01 = Thread(target=self.CmdThread,
+                           args=(ProcessCmd0, ProcessCmd))
         thread_01.start()
 
+    # 多线程编码函数
     def CmdThread(self, ProcessCmd0, ProcessCmd):
-        
+
         self.ProgressBar.setVisible(1)
         self.StartButton.setText("正在压制...")
         self.StartButton.setWindowIconText(" ")
         self.StartButton.setDisabled(1)
-        
-        if(self.TextLine.text() != ''):
-            ProcessCmd += "-vf \"subtitles=\'" + self.TextLine.text().replace(":","\:") + "\'\" "
 
-        ProcessCmd += "\"" + self.OutputLine.text() + "\""
+        if(self.TextLine.text() != ''):
+            ProcessCmd += "-vf \"subtitles=\'" + \
+                self.TextLine.text().replace(":", "\:") + "\'\""
+                
+            # 按帧数截取视频
+            if(self.TotalFrameNum.value != 0):
+                ProcessCmd += ",\"select=between(n\\," + str(
+                    self.StartFrameNum.value()) + "\\,"+str(self.TotalFrameNum.value())+")\" "
+
+        ProcessCmd += " \"" + self.OutputLine.text() + "\""
         print(ProcessCmd)
         if(ProcessCmd0 != ""):
             os.system(ProcessCmd0)
         os.system(ProcessCmd)
-        
+
         self.ProgressBar.setVisible(0)
         self.StartButton.setText("开始压制")
         self.StartButton.setDisabled(0)
         self.StartButton.setWindowIconText("")
-    
+        
+        if(self.AutoPowerOffButton.isChecked()):
+            os.system('shutdown -s -t 2')
+
     def ProcessComplte(self):
         if(self.StartButton.text() == "开始压制"):
             InfoBar.success(
-                    title='任务执行完成',
-                    content="请确认是否压制成功",
-                    orient=Qt.Horizontal,
-                    isClosable=True,
-                    position=InfoBarPosition.BOTTOM_RIGHT,
-                    duration=6000,
-                    parent=self
-                )
+                title='任务执行完成',
+                content="请确认是否压制成功",
+                orient=Qt.Horizontal,
+                isClosable=True,
+                position=InfoBarPosition.BOTTOM_RIGHT,
+                duration=6000,
+                parent=self
+            )

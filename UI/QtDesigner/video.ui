@@ -240,14 +240,14 @@
                 <item>
                  <widget class="BodyLabel" name="DepthText">
                   <property name="text">
-                   <string>位深度</string>
+                   <string>音频模式</string>
                   </property>
                  </widget>
                 </item>
                 <item>
                  <widget class="ComboBox" name="DepthChoice">
                   <property name="text">
-                   <string>8bit</string>
+                   <string/>
                   </property>
                  </widget>
                 </item>
@@ -273,7 +273,17 @@
                  </widget>
                 </item>
                 <item>
-                 <widget class="SpinBox" name="StartFrameNum"/>
+                 <widget class="SpinBox" name="StartFrameNum">
+                  <property name="minimumSize">
+                   <size>
+                    <width>240</width>
+                    <height>33</height>
+                   </size>
+                  </property>
+                  <property name="maximum">
+                   <number>9999999</number>
+                  </property>
+                 </widget>
                 </item>
                </layout>
               </item>
@@ -285,7 +295,7 @@
                 <item>
                  <widget class="BodyLabel" name="TotalFrameText">
                   <property name="text">
-                   <string>编码帧数</string>
+                   <string>终结帧</string>
                   </property>
                   <property name="alignment">
                    <set>Qt::AlignCenter</set>
@@ -293,7 +303,17 @@
                  </widget>
                 </item>
                 <item>
-                 <widget class="SpinBox" name="TotalFrameNum"/>
+                 <widget class="SpinBox" name="TotalFrameNum">
+                  <property name="minimumSize">
+                   <size>
+                    <width>240</width>
+                    <height>33</height>
+                   </size>
+                  </property>
+                  <property name="maximum">
+                   <number>9999999</number>
+                  </property>
+                 </widget>
                 </item>
                </layout>
               </item>
@@ -602,7 +622,11 @@
                </widget>
               </item>
               <item>
-               <widget class="SpinBox" name="WidthNum"/>
+               <widget class="SpinBox" name="WidthNum">
+                <property name="maximum">
+                 <number>99999</number>
+                </property>
+               </widget>
               </item>
              </layout>
             </item>
@@ -619,7 +643,11 @@
                </widget>
               </item>
               <item>
-               <widget class="SpinBox" name="HeightNum"/>
+               <widget class="SpinBox" name="HeightNum">
+                <property name="maximum">
+                 <number>99999</number>
+                </property>
+               </widget>
               </item>
              </layout>
             </item>
