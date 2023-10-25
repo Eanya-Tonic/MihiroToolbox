@@ -242,6 +242,7 @@ class Ui_Video(object):
         self.ParmsSetTitle.setObjectName("ParmsSetTitle")
         self.ParmsSetBox.addWidget(self.ParmsSetTitle, 0, 0, 1, 1)
         self.ParmsNum = DoubleSpinBox(self.ParmsBox)
+        self.ParmsNum.setMaximum(9999999.0)
         self.ParmsNum.setObjectName("ParmsNum")
         self.ParmsSetBox.addWidget(self.ParmsNum, 1, 0, 1, 1)
         self.KbpsLabel = BodyLabel(self.ParmsBox)
