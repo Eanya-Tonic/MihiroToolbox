@@ -14,9 +14,9 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_Form(object):
     def setupUi(self, Form):
         Form.setObjectName("Form")
-        Form.resize(973, 639)
+        Form.resize(719, 639)
         self.layoutWidget = QtWidgets.QWidget(Form)
-        self.layoutWidget.setGeometry(QtCore.QRect(30, 60, 911, 414))
+        self.layoutWidget.setGeometry(QtCore.QRect(30, 60, 611, 561))
         self.layoutWidget.setObjectName("layoutWidget")
         self.verticalLayout_4 = QtWidgets.QVBoxLayout(self.layoutWidget)
         self.verticalLayout_4.setContentsMargins(16, 16, 16, 16)
@@ -91,7 +91,11 @@ class Ui_Form(object):
         self.gridLayout.setSpacing(16)
         self.gridLayout.setObjectName("gridLayout")
         self.verticalLayout_2 = QtWidgets.QVBoxLayout()
+        self.verticalLayout_2.setContentsMargins(16, 16, 16, 16)
         self.verticalLayout_2.setObjectName("verticalLayout_2")
+        self.ImageLabel = ImageLabel(self.CardWidget)
+        self.ImageLabel.setObjectName("ImageLabel")
+        self.verticalLayout_2.addWidget(self.ImageLabel)
         self.StrongBodyLabel = StrongBodyLabel(self.CardWidget)
         self.StrongBodyLabel.setMinimumSize(QtCore.QSize(0, 60))
         self.StrongBodyLabel.setMaximumSize(QtCore.QSize(16777215, 48))
@@ -137,4 +141,4 @@ class Ui_Form(object):
         self.BodyLabel_2.setText(_translate("Form", "一个基于FFMPEG的开源GUI工具程序。"))
         self.BodyLabel.setText(_translate("Form", "版本：Version 1.0"))
         self.HyperlinkLabel.setText(_translate("Form", "访问Github"))
-from qfluentwidgets import BodyLabel, CardWidget, CheckBox, ComboBox, HyperlinkLabel, LargeTitleLabel, SimpleCardWidget, StrongBodyLabel, SubtitleLabel
+from qfluentwidgets import BodyLabel, CardWidget, CheckBox, ComboBox, HyperlinkLabel, ImageLabel, LargeTitleLabel, SimpleCardWidget, StrongBodyLabel, SubtitleLabel

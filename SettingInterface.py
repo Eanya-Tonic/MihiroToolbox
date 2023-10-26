@@ -14,6 +14,8 @@ class SettingInterface(QWidget, Ui_Form):
         self.setupUi(self)
         
         self.HyperlinkLabel.setUrl('https://github.com/Eanya-Tonic/MihiroToolbox')
+        
+        self.ImageLabel.setPixmap(QPixmap('img/logo.png').scaledToHeight(100))
 
         # 选择主题
         
