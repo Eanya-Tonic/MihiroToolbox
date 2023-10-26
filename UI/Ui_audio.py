@@ -148,5 +148,6 @@ class Ui_Audio(object):
         self.ProcessTitle.setText(_translate("Audio", "压制"))
         self.EncoderLabel.setText(_translate("Audio", "编码器"))
         self.BitrateLabel.setText(_translate("Audio", "码率(Kbps)"))
+        self.BitrateNum.setToolTip(_translate("Audio", "<html><head/><body><p>只有ACC和MP3编码器支持自定义码率</p></body></html>"))
         self.ProcessButton.setText(_translate("Audio", "压制"))
 from qfluentwidgets import BodyLabel, ComboBox, CompactSpinBox, IndeterminateProgressBar, LargeTitleLabel, LineEdit, PrimaryPushButton, PushButton, SimpleCardWidget, SubtitleLabel
