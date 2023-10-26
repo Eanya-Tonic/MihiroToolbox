@@ -26,6 +26,10 @@
 [FFmpeg / FFmpeg](https://github.com/FFmpeg/FFmpeg)
 <br>
 本程序是FFmpeg的GUI界面，音视频编解码操作均通过FFmpeg实现。
+<br>
+**真寻**
+<br>
+绪山真寻是《别当欧尼酱了！》的主角，也是本程序的名字和Icon的出处
 
 ## 特别鸣谢
 [小丸工具箱](https://maruko.appinn.me/)
