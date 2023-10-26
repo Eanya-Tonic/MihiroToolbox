@@ -60,19 +60,19 @@ class CommonInterface(QWidget, Ui_Common):
 
         # 文件选择
         self.InputButton.clicked.connect(
-            partial(self.FileSelect, self.InputLine, 0))
+            partial(self.FileSelect, self.InputLine, 0, 0))
         self.AudioInputButton.clicked.connect(
-            partial(self.FileSelect, self.AudioInputLine, self.VideoOutputLine_2))
+            partial(self.FileSelect, self.AudioInputLine, self.VideoOutputLine_2, 1))
         self.VideoOutputButton_2.clicked.connect(
-            partial(self.FileSelect, self.VideoOutputLine_2, 0))
+            partial(self.FileSelect, self.VideoOutputLine_2, 0, 0))
 
         self.VideoInputButton.clicked.connect(
-            partial(self.FileSelect, self.VideoInputLine, self.VideoOutputLine))
+            partial(self.FileSelect, self.VideoInputLine, self.VideoOutputLine, 2))
         self.VideoOutputButton.clicked.connect(
-            partial(self.FileSelect, self.VideoOutputLine, 0))
+            partial(self.FileSelect, self.VideoOutputLine, 0, 0))
 
     # 文件选择函数
-    def FileSelect(self, TargetLine, AutoFill):
+    def FileSelect(self, TargetLine, AutoFill, Type):
         dir = QFileDialog()
         dir.setDirectory(os.getcwd())
         if dir.exec_():      # 判断是否选择了文件
@@ -82,7 +82,10 @@ class CommonInterface(QWidget, Ui_Common):
             if AutoFill != 0:
                 FileExt = os.path.splitext(FilePath[0])[1]
                 FilePath = os.path.splitext(FilePath[0])[0]
-                NewFilePath = FilePath + '_output.mp4'
+                if(Type == 1):
+                    NewFilePath = FilePath + '_output.mp4'
+                elif(Type == 2):
+                    NewFilePath = FilePath + '_output' + FileExt
                 AutoFill.setText(NewFilePath,)
 
     # 一图流控制

@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>777</width>
-    <height>751</height>
+    <height>816</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -78,6 +78,12 @@
        </item>
        <item>
         <widget class="SimpleCardWidget" name="MP4Box">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>430</height>
+          </size>
+         </property>
          <layout class="QGridLayout" name="gridLayout_4">
           <property name="leftMargin">
            <number>16</number>
@@ -200,6 +206,9 @@
             </property>
            </widget>
           </item>
+          <item row="4" column="0">
+           <widget class="IndeterminateProgressBar" name="ProgressBar1"/>
+          </item>
          </layout>
         </widget>
        </item>
@@ -230,11 +239,17 @@
        </item>
        <item>
         <widget class="SimpleCardWidget" name="MkvBox">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>430</height>
+          </size>
+         </property>
          <layout class="QGridLayout" name="gridLayout_5">
-          <item row="0" column="0">
-           <layout class="QGridLayout" name="VideoInBox_2">
+          <item row="3" column="0">
+           <layout class="QGridLayout" name="VideoOutputBox_2">
             <item row="0" column="0">
-             <widget class="BodyLabel" name="inputLabel_2">
+             <widget class="BodyLabel" name="OutputLabel_2">
               <property name="font">
                <font>
                 <family>微软雅黑</family>
@@ -244,19 +259,59 @@
                </font>
               </property>
               <property name="text">
-               <string>视频输入</string>
+               <string>视频输出</string>
               </property>
              </widget>
             </item>
             <item row="1" column="0">
-             <widget class="LineEdit" name="InputLine_2">
+             <widget class="LineEdit" name="OutputLine_2">
               <property name="enabled">
                <bool>true</bool>
               </property>
              </widget>
             </item>
             <item row="1" column="1">
-             <widget class="PushButton" name="InputButton_2">
+             <widget class="PushButton" name="OutputButton_2">
+              <property name="text">
+               <string>浏览</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item row="4" column="0">
+           <widget class="PrimaryPushButton" name="MkvStart">
+            <property name="text">
+             <string>封装</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <layout class="QGridLayout" name="TextInBox">
+            <item row="0" column="0">
+             <widget class="BodyLabel" name="TextLabel">
+              <property name="font">
+               <font>
+                <family>微软雅黑</family>
+                <pointsize>11</pointsize>
+                <weight>50</weight>
+                <bold>false</bold>
+               </font>
+              </property>
+              <property name="text">
+               <string>字幕输入</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="LineEdit" name="TextLine">
+              <property name="enabled">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="1">
+             <widget class="PushButton" name="TextButton">
               <property name="text">
                <string>浏览</string>
               </property>
@@ -297,10 +352,10 @@
             </item>
            </layout>
           </item>
-          <item row="2" column="0">
-           <layout class="QGridLayout" name="TextInBox">
+          <item row="0" column="0">
+           <layout class="QGridLayout" name="VideoInBox_2">
             <item row="0" column="0">
-             <widget class="BodyLabel" name="TextLabel">
+             <widget class="BodyLabel" name="inputLabel_2">
               <property name="font">
                <font>
                 <family>微软雅黑</family>
@@ -310,19 +365,19 @@
                </font>
               </property>
               <property name="text">
-               <string>字幕输入</string>
+               <string>视频输入</string>
               </property>
              </widget>
             </item>
             <item row="1" column="0">
-             <widget class="LineEdit" name="TextLine">
+             <widget class="LineEdit" name="InputLine_2">
               <property name="enabled">
                <bool>true</bool>
               </property>
              </widget>
             </item>
             <item row="1" column="1">
-             <widget class="PushButton" name="TextButton">
+             <widget class="PushButton" name="InputButton_2">
               <property name="text">
                <string>浏览</string>
               </property>
@@ -330,45 +385,8 @@
             </item>
            </layout>
           </item>
-          <item row="3" column="0">
-           <layout class="QGridLayout" name="VideoOutputBox_2">
-            <item row="0" column="0">
-             <widget class="BodyLabel" name="OutputLabel_2">
-              <property name="font">
-               <font>
-                <family>微软雅黑</family>
-                <pointsize>11</pointsize>
-                <weight>50</weight>
-                <bold>false</bold>
-               </font>
-              </property>
-              <property name="text">
-               <string>视频输出</string>
-              </property>
-             </widget>
-            </item>
-            <item row="1" column="0">
-             <widget class="LineEdit" name="OutputLine_2">
-              <property name="enabled">
-               <bool>true</bool>
-              </property>
-             </widget>
-            </item>
-            <item row="1" column="1">
-             <widget class="PushButton" name="OutputButton_2">
-              <property name="text">
-               <string>浏览</string>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-          <item row="4" column="0">
-           <widget class="PrimaryPushButton" name="PrimaryPushButton_2">
-            <property name="text">
-             <string>封装</string>
-            </property>
-           </widget>
+          <item row="5" column="0">
+           <widget class="IndeterminateProgressBar" name="ProgressBar2"/>
           </item>
          </layout>
         </widget>
@@ -400,6 +418,12 @@
        </item>
        <item>
         <widget class="SimpleCardWidget" name="M3U8Box">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>180</height>
+          </size>
+         </property>
          <layout class="QGridLayout" name="gridLayout_12">
           <property name="leftMargin">
            <number>16</number>
@@ -493,6 +517,9 @@
             </item>
            </layout>
           </item>
+          <item row="1" column="0">
+           <widget class="IndeterminateProgressBar" name="ProgressBar3"/>
+          </item>
          </layout>
         </widget>
        </item>
@@ -538,6 +565,11 @@
   <customwidget>
    <class>LargeTitleLabel</class>
    <extends>QLabel</extends>
+   <header>qfluentwidgets</header>
+  </customwidget>
+  <customwidget>
+   <class>IndeterminateProgressBar</class>
+   <extends>QProgressBar</extends>
    <header>qfluentwidgets</header>
   </customwidget>
   <customwidget>
