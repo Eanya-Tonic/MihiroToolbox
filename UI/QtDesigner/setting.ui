@@ -6,18 +6,18 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>978</width>
-    <height>691</height>
+    <width>973</width>
+    <height>639</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>30</x>
-     <y>30</y>
+     <y>60</y>
      <width>911</width>
      <height>414</height>
     </rect>
@@ -199,7 +199,7 @@
               <font>
                <family>微软雅黑</family>
                <pointsize>16</pointsize>
-               <weight>63</weight>
+               <weight>75</weight>
                <bold>true</bold>
               </font>
              </property>
