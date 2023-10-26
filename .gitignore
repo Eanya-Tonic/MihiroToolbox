@@ -39,3 +39,4 @@ tools/ffmpeg.exe
 tools/ffplay.exe
 tools/ffprobe.exe
 ffmpeg2pass-0.log.mbtree
+MihiroToolBox.spec
