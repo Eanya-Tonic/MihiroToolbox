@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>750</width>
-    <height>790</height>
+    <width>830</width>
+    <height>857</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -113,6 +113,9 @@
               <property name="enabled">
                <bool>true</bool>
               </property>
+              <property name="clearButtonEnabled">
+               <bool>true</bool>
+              </property>
              </widget>
             </item>
             <item row="1" column="1">
@@ -146,6 +149,9 @@
               <property name="enabled">
                <bool>true</bool>
               </property>
+              <property name="clearButtonEnabled">
+               <bool>true</bool>
+              </property>
              </widget>
             </item>
             <item row="1" column="1">
@@ -177,6 +183,9 @@
             <item row="1" column="0">
              <widget class="LineEdit" name="InputLine">
               <property name="enabled">
+               <bool>true</bool>
+              </property>
+              <property name="clearButtonEnabled">
                <bool>true</bool>
               </property>
              </widget>
@@ -220,6 +229,12 @@
        </item>
        <item row="1" column="0">
         <widget class="SimpleCardWidget" name="AudioParmsCard">
+         <property name="minimumSize">
+          <size>
+           <width>350</width>
+           <height>0</height>
+          </size>
+         </property>
          <layout class="QHBoxLayout" name="horizontalLayout">
           <property name="spacing">
            <number>16</number>
@@ -248,7 +263,11 @@
                </widget>
               </item>
               <item>
-               <widget class="SpinBox" name="BitrateNum"/>
+               <widget class="SpinBox" name="BitrateNum">
+                <property name="maximum">
+                 <number>999999</number>
+                </property>
+               </widget>
               </item>
              </layout>
             </item>
@@ -262,7 +281,11 @@
                </widget>
               </item>
               <item>
-               <widget class="SpinBox" name="FpsNum"/>
+               <widget class="SpinBox" name="FpsNum">
+                <property name="maximum">
+                 <number>999999</number>
+                </property>
+               </widget>
               </item>
              </layout>
             </item>
@@ -276,7 +299,11 @@
                </widget>
               </item>
               <item>
-               <widget class="DoubleSpinBox" name="CrfNum"/>
+               <widget class="DoubleSpinBox" name="CrfNum">
+                <property name="maximum">
+                 <double>999.000000000000000</double>
+                </property>
+               </widget>
               </item>
              </layout>
             </item>
@@ -288,27 +315,26 @@
              <number>25</number>
             </property>
             <property name="topMargin">
-             <number>36</number>
+             <number>0</number>
             </property>
             <property name="bottomMargin">
-             <number>36</number>
+             <number>0</number>
             </property>
             <item>
              <layout class="QGridLayout" name="InnerTimeBox">
+              <item row="1" column="0">
+               <widget class="ComboBox" name="HardAccler"/>
+              </item>
               <item row="0" column="0">
                <widget class="BodyLabel" name="TimeLabel">
-                <property name="text">
-                 <string>时间</string>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>24</height>
+                 </size>
                 </property>
-               </widget>
-              </item>
-              <item row="1" column="0">
-               <widget class="SpinBox" name="TimeNum"/>
-              </item>
-              <item row="1" column="1">
-               <widget class="BodyLabel" name="TimeLabel_2">
                 <property name="text">
-                 <string>秒</string>
+                 <string>硬件加速</string>
                 </property>
                </widget>
               </item>
@@ -320,6 +346,9 @@
                <string>开始压制</string>
               </property>
              </widget>
+            </item>
+            <item>
+             <widget class="IndeterminateProgressBar" name="ProgressBar1"/>
             </item>
            </layout>
           </item>
@@ -353,6 +382,12 @@
        </item>
        <item>
         <widget class="SimpleCardWidget" name="VideoClipCard">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>280</height>
+          </size>
+         </property>
          <layout class="QGridLayout" name="gridLayout_10">
           <item row="0" column="0">
            <layout class="QGridLayout" name="InnerVideoClipBox">
@@ -371,6 +406,20 @@
             <property name="spacing">
              <number>16</number>
             </property>
+            <item row="1" column="1">
+             <layout class="QVBoxLayout" name="EndTimeBox">
+              <item>
+               <widget class="BodyLabel" name="EndTimeLabel">
+                <property name="text">
+                 <string>结束时刻</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="LineEdit" name="EndTimeLine"/>
+              </item>
+             </layout>
+            </item>
             <item row="0" column="0">
              <layout class="QGridLayout" name="VideoInputBox">
               <item row="0" column="0">
@@ -393,6 +442,9 @@
                 <property name="enabled">
                  <bool>true</bool>
                 </property>
+                <property name="clearButtonEnabled">
+                 <bool>true</bool>
+                </property>
                </widget>
               </item>
               <item row="1" column="1">
@@ -401,20 +453,6 @@
                  <string>浏览</string>
                 </property>
                </widget>
-              </item>
-             </layout>
-            </item>
-            <item row="0" column="1">
-             <layout class="QVBoxLayout" name="StartTimebox">
-              <item>
-               <widget class="BodyLabel" name="StartTimeLabel">
-                <property name="text">
-                 <string>起始时刻</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="LineEdit" name="StartTimeLine"/>
               </item>
              </layout>
             </item>
@@ -440,6 +478,9 @@
                 <property name="enabled">
                  <bool>true</bool>
                 </property>
+                <property name="clearButtonEnabled">
+                 <bool>true</bool>
+                </property>
                </widget>
               </item>
               <item row="1" column="1">
@@ -451,17 +492,17 @@
               </item>
              </layout>
             </item>
-            <item row="1" column="1">
-             <layout class="QVBoxLayout" name="EndTimeBox">
+            <item row="0" column="1">
+             <layout class="QVBoxLayout" name="StartTimebox">
               <item>
-               <widget class="BodyLabel" name="EndTimeLabel">
+               <widget class="BodyLabel" name="StartTimeLabel">
                 <property name="text">
-                 <string>结束时刻</string>
+                 <string>起始时刻</string>
                 </property>
                </widget>
               </item>
               <item>
-               <widget class="LineEdit" name="EndTimeLine"/>
+               <widget class="LineEdit" name="StartTimeLine"/>
               </item>
              </layout>
             </item>
@@ -471,6 +512,9 @@
                <string>开始截取</string>
               </property>
              </widget>
+            </item>
+            <item row="3" column="0" colspan="2">
+             <widget class="IndeterminateProgressBar" name="ProgressBar2"/>
             </item>
            </layout>
           </item>
@@ -504,6 +548,12 @@
        </item>
        <item>
         <widget class="SimpleCardWidget" name="TransposeCard">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>80</height>
+          </size>
+         </property>
          <layout class="QGridLayout" name="gridLayout_11">
           <property name="leftMargin">
            <number>16</number>
@@ -560,6 +610,9 @@
             </item>
            </layout>
           </item>
+          <item row="1" column="0">
+           <widget class="IndeterminateProgressBar" name="ProgressBar3"/>
+          </item>
          </layout>
         </widget>
        </item>
@@ -610,6 +663,11 @@
   <customwidget>
    <class>LargeTitleLabel</class>
    <extends>QLabel</extends>
+   <header>qfluentwidgets</header>
+  </customwidget>
+  <customwidget>
+   <class>IndeterminateProgressBar</class>
+   <extends>QProgressBar</extends>
    <header>qfluentwidgets</header>
   </customwidget>
   <customwidget>

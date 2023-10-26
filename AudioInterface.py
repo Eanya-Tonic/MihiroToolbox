@@ -145,9 +145,9 @@ class AudioInterface(QWidget, Ui_Audio):
         
         print(ProcessCmd)
         
-        thread_02 = Thread(target=self.CmdThread,
+        thread_01 = Thread(target=self.CmdThread,
                            args=(ProcessCmd,))
-        thread_02.start()
+        thread_01.start()
         
     # 多线程编码函数
     def CmdThread(self, ProcessCmd):
