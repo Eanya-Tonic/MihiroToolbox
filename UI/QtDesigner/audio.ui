@@ -187,26 +187,7 @@
        </item>
        <item>
         <widget class="SimpleCardWidget" name="OptionBox">
-         <layout class="QGridLayout" name="gridLayout_5">
-          <property name="leftMargin">
-           <number>16</number>
-          </property>
-          <property name="topMargin">
-           <number>16</number>
-          </property>
-          <property name="rightMargin">
-           <number>16</number>
-          </property>
-          <property name="bottomMargin">
-           <number>16</number>
-          </property>
-          <item row="0" column="1">
-           <widget class="ComboBox" name="EncoderChioce">
-            <property name="text">
-             <string>ACC</string>
-            </property>
-           </widget>
-          </item>
+         <layout class="QGridLayout" name="gridLayout">
           <item row="0" column="0">
            <widget class="BodyLabel" name="EncoderLabel">
             <property name="text">
@@ -217,12 +198,51 @@
             </property>
            </widget>
           </item>
-          <item row="1" column="0" colspan="2">
+          <item row="0" column="1">
+           <widget class="ComboBox" name="EncoderChioce">
+            <property name="minimumSize">
+             <size>
+              <width>200</width>
+              <height>33</height>
+             </size>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="BodyLabel" name="BitrateLabel">
+            <property name="text">
+             <string>码率(Kbps)</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="CompactSpinBox" name="BitrateNum">
+            <property name="minimumSize">
+             <size>
+              <width>200</width>
+              <height>33</height>
+             </size>
+            </property>
+            <property name="maximum">
+             <number>999999</number>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0" colspan="2">
            <widget class="PrimaryPushButton" name="ProcessButton">
             <property name="text">
              <string>压制</string>
             </property>
            </widget>
+          </item>
+          <item row="3" column="0" colspan="2">
+           <widget class="IndeterminateProgressBar" name="ProgressBar"/>
           </item>
          </layout>
         </widget>
@@ -277,8 +297,18 @@
    <header>qfluentwidgets</header>
   </customwidget>
   <customwidget>
+   <class>IndeterminateProgressBar</class>
+   <extends>QProgressBar</extends>
+   <header>qfluentwidgets</header>
+  </customwidget>
+  <customwidget>
    <class>LineEdit</class>
    <extends>QLineEdit</extends>
+   <header>qfluentwidgets</header>
+  </customwidget>
+  <customwidget>
+   <class>CompactSpinBox</class>
+   <extends>QSpinBox</extends>
    <header>qfluentwidgets</header>
   </customwidget>
  </customwidgets>

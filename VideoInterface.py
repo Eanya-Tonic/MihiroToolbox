@@ -194,7 +194,7 @@ class VideoInterface(QWidget, Ui_Video):
                     self.StartFrameNum.value()) + "\\,"+str(self.TotalFrameNum.value())+")\" "
 
         ProcessCmd += " \"" + self.OutputLine.text() + "\""
-        print(ProcessCmd)
+        
         if(ProcessCmd0 != ""):
             os.system(ProcessCmd0)
         os.system(ProcessCmd)
@@ -207,6 +207,7 @@ class VideoInterface(QWidget, Ui_Video):
         if(self.AutoPowerOffButton.isChecked()):
             os.system('shutdown -s -t 2')
 
+    # 压制完成提示
     def ProcessComplte(self):
         if(self.StartButton.text() == "开始压制"):
             InfoBar.success(
