@@ -114,8 +114,8 @@ class AudioInterface(QWidget, Ui_Audio):
         # 地址缺失
         if(self.InputLine.text() == '' or self.OutputLine.text() == ''):
             InfoBar.error(
-                title='未定义视频地址',
-                content="请确认你是否已经设定了正确的输入输出视频地址",
+                title='未定义音频地址',
+                content="请确认你是否已经设定了正确的输入输出音频地址",
                 orient=Qt.Horizontal,
                 isClosable=True,
                 position=InfoBarPosition.BOTTOM_RIGHT,
