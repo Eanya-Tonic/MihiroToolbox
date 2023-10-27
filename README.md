@@ -4,6 +4,14 @@
 
 真寻工具箱是一款用Python编写的音视频处理软件。基于FluentUI设计，为FFmpeg提供一个简洁易用的GUI，方便用户处理音视频。
 
+## 下载安装
+从Github Release下载：https://github.com/Eanya-Tonic/MihiroToolbox/releases
+从百度网盘下载：https://pan.baidu.com/s/15DME9GT99bBgeSaEew-2dA?pwd=wbdt 提取码：wbdt
+
+## 演示视频
+**B站：**
+[真寻工具箱—一个美观的FFmpeg音视频编码GUI程序](https://www.bilibili.com/video/BV1dg4y1d7F1/)
+
 ## 目前实现功能
 **视频、音频、常用和封装**，并提供一个程序设置界面。在视频界面支持**H264和H265编码**，可以自定义分辨率和码率（通过**CRF、VBR或者2Pass**），在使用VBR模式时，支持打开硬件编码加速。音频支持通过**ACC、TAA、WAV、ALAC、FLAC、AC3、MP3编码器**重新编码转换，在使用ACC和MP3时，可以自定义码率。在常用标签页，提供了**一图流**（图片+音乐生成视频）和**无损截取视频**以及**旋转视频**（需重新编码）这几个常用功能。在封装页面提供了**MP4和MKV的封装**功能，并加入了一个**M3U8下载器**，方便快速从网页上获取流媒体视频。
 
