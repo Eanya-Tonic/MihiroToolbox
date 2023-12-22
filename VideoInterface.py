@@ -65,6 +65,10 @@ class VideoInterface(QWidget, Ui_Video):
         self.HardAccler.setDisabled(1)
 
     # 文件选择函数
+    '''
+    输入: 选择文件的目标LineEdit
+    输出: 无输出
+    '''
     def FileSelect(self, TargetLine):
         dir = QFileDialog()
         dir.setDirectory(os.getcwd())
@@ -73,6 +77,10 @@ class VideoInterface(QWidget, Ui_Video):
             TargetLine.setText(FilePath[0])
     
     # 自动填充函数
+    '''
+    输入: 选择文件的源LineEdit, 自动同步的目标LineEdit
+    输出: 无输出
+    '''
     def AutoFill(self, SourceLine, TargetLine):
         FilePath = SourceLine.text()
         if FilePath == "":
@@ -92,6 +100,10 @@ class VideoInterface(QWidget, Ui_Video):
             self.HeightNum.setDisabled(1)
 
     # 编码参数控制
+    '''
+    输入: 编码模式选择, 0是CRF模式, 1是VBR模式
+    输出: 无输出
+    '''
     def EncodeParms(self, choice):
         # 0是CRF模式
         if(choice == 0):
@@ -186,6 +198,10 @@ class VideoInterface(QWidget, Ui_Video):
         thread_01.start()
 
     # 多线程编码函数
+    '''
+    输入: 2Pass使用的第一次Pass处理指令(为空则不适用), 处理指令
+    输出: 无输出
+    '''
     def CmdThread(self, ProcessCmd0, ProcessCmd):
 
         self.ProgressBar.setVisible(1)

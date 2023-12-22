@@ -31,9 +31,9 @@ class AudioInterface(QWidget, Ui_Audio):
 
         # 文件选项
         self.InputButton.clicked.connect(
-            partial(self.FileSelect, self.InputLine, self.OutputLine))
+            partial(self.FileSelect, self.InputLine))
         self.Outputbutton.clicked.connect(
-            partial(self.FileSelect, self.OutputLine, 0))
+            partial(self.FileSelect, self.OutputLine))
         
         # 自动填充
         self.InputLine.textChanged.connect(
@@ -47,7 +47,11 @@ class AudioInterface(QWidget, Ui_Audio):
         
 
     # 文件选择函数
-    def FileSelect(self, TargetLine, AutoFill):
+    '''
+    输入: 选择文件的目标LineEdit
+    输出: 无输出
+    '''
+    def FileSelect(self, TargetLine):
         dir = QFileDialog()
         dir.setDirectory(os.getcwd())
         if dir.exec_():      # 判断是否选择了文件
@@ -55,6 +59,10 @@ class AudioInterface(QWidget, Ui_Audio):
             TargetLine.setText(FilePath[0])
         
     # 自动填充函数
+    '''
+    输入: 选择文件的源LineEdit, 自动同步的目标LineEdit
+    输出: 无输出
+    '''
     def AutoFill(self, SourceLine, TargetLine):
         FilePath = SourceLine.text()
         if FilePath == "":
@@ -82,6 +90,10 @@ class AudioInterface(QWidget, Ui_Audio):
         TargetLine.setText(NewFilePath)
                 
     # 去除文件后缀名用于处理
+    '''
+    输入: 带有后缀名的文件地址string
+    输出: 无后缀名的文件地址string
+    '''
     def RemoveExt(self, FilePath):
         FilePath = os.path.splitext(FilePath)[0]
         return FilePath
@@ -158,6 +170,10 @@ class AudioInterface(QWidget, Ui_Audio):
         thread_01.start()
         
     # 多线程编码函数
+    '''
+    输入: 处理指令
+    输出: 无输出
+    '''
     def CmdThread(self, ProcessCmd):
 
         self.ProgressBar.setVisible(1)

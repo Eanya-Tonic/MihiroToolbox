@@ -78,6 +78,10 @@ class CommonInterface(QWidget, Ui_Common):
             partial(self.AutoFill, self.AudioInputLine, self.VideoOutputLine_2, 1))
 
     # 文件选择函数
+    '''
+    输入: 选择文件的目标LineEdit
+    输出: 无输出
+    '''
     def FileSelect(self, TargetLine):
         dir = QFileDialog()
         dir.setDirectory(os.getcwd())
@@ -86,6 +90,10 @@ class CommonInterface(QWidget, Ui_Common):
             TargetLine.setText(FilePath[0])
     
     # 自动填充函数
+    '''
+    输入: 选择文件的源LineEdit, 自动同步的目标LineEdit, 自动填充后缀名类型 1是mp4 2是保留原本的后缀名
+    输出: 无输出
+    '''
     def AutoFill(self, SourceLine, TargetLine, Type):
         FilePath = SourceLine.text()
         if FilePath == "":
@@ -139,6 +147,10 @@ class CommonInterface(QWidget, Ui_Common):
         thread_01.start()
         
     # 多线程编码函数01
+    '''
+    输入: 处理指令
+    输出: 无输出
+    '''
     def CmdThread01(self, ProcessCmd):
 
         self.ProgressBar1.setVisible(1)
@@ -189,6 +201,10 @@ class CommonInterface(QWidget, Ui_Common):
         thread_02.start()
         
     # 多线程编码函数02
+    '''
+    输入: 处理指令
+    输出: 无输出
+    '''
     def CmdThread02(self,ProcessCmd):
         self.ProgressBar2.setVisible(1)
         self.ClipVideoButton.setText("正在截取...")
@@ -249,6 +265,10 @@ class CommonInterface(QWidget, Ui_Common):
         thread_03.start()
         
     # 多线程编码函数03
+    '''
+    输入: 处理指令
+    输出: 无输出
+    '''
     def CmdThread03(self, ProcessCmd):
         self.ProgressBar3.setVisible(1)
         self.TransposeButton.setText("正在旋转...")

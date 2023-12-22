@@ -55,6 +55,10 @@ class PackageInterface(QWidget, Ui_Package):
         
         
     # 文件选择函数
+    '''
+    输入: 选择文件的目标LineEdit
+    输出: 无输出
+    '''
     def FileSelect(self, TargetLine):
         dir = QFileDialog()
         dir.setDirectory(os.getcwd())
@@ -63,6 +67,10 @@ class PackageInterface(QWidget, Ui_Package):
             TargetLine.setText(FilePath[0])
         
     # 自动填充函数
+    '''
+    输入: 选择文件的源LineEdit, 自动同步的目标LineEdit, 自动填充后缀名类型 1是mp4 2是mkv
+    输出: 无输出
+    '''
     def AutoFill(self, SourceLine, TargetLine, Type):
         FilePath = SourceLine.text()
         if FilePath == "":
@@ -76,6 +84,10 @@ class PackageInterface(QWidget, Ui_Package):
         TargetLine.setText(NewFilePath)
 
     # 粘贴函数
+    '''
+    输入: 黏贴的目标地址
+    输出: 无输出
+    '''
     def Paste(self, TargetLine):
         TargetLine.setText(QApplication.clipboard().text())
         
@@ -104,6 +116,10 @@ class PackageInterface(QWidget, Ui_Package):
         thread_01.start()
     
     # MP4封装线程
+    '''
+    输入: 处理指令
+    输出: 无输出
+    '''
     def MP4Thread(self, ProcseeCmd):
         self.MP4Start.setWindowIconText(" ")
         self.ProgressBar1.setVisible(1)
@@ -156,6 +172,10 @@ class PackageInterface(QWidget, Ui_Package):
         thread_02.start()
         
     # MKV封装线程
+    '''
+    输入: 处理指令
+    输出: 无输出
+    '''
     def MkvThread(self, ProcseeCmd):
         self.MkvStart.setWindowIconText(" ")
         self.ProgressBar2.setVisible(1)
@@ -201,6 +221,10 @@ class PackageInterface(QWidget, Ui_Package):
         thread_03.start()
         
     # 下载线程
+    '''
+    输入: 处理指令
+    输出: 无输出
+    '''
     def DownloadThread(self, ProcseeCmd):
         self.DownloadButton.setWindowIconText(" ")
         self.ProgressBar3.setVisible(1)
