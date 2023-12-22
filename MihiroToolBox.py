@@ -23,7 +23,7 @@ class MihiroToolBox(SplitFluentWindow):
         self.setWindowIcon(QIcon('img/logo.png'))
         
         # 设置默认大小
-        self.resize(880,880)
+        self.resize(800,800)
         
         # 调整窗口在屏幕中央显示
         center_pointer = QDesktopWidget().availableGeometry().center() 
