@@ -7,7 +7,17 @@ from functools import partial
 import os
 from threading import Thread
 
-from UI.Ui_common import Ui_Common
+# 读取配置文件
+import configparser
+conf = configparser.ConfigParser()
+
+conf.read('config.ini')
+Scroll = conf.get('DEFAULT', 'ScrollUI')
+
+if(Scroll == "0"):
+    from UI.Ui_common import Ui_Common
+elif(Scroll == "1"):
+    from UI_test.Ui_common import Ui_Common
 
 
 class CommonInterface(QWidget, Ui_Common):

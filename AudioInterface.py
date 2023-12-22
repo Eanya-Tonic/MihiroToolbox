@@ -7,7 +7,17 @@ from functools import partial
 import os
 from threading import Thread
 
-from UI.Ui_audio import Ui_Audio
+# 读取配置文件
+import configparser
+conf = configparser.ConfigParser()
+
+conf.read('config.ini')
+Scroll = conf.get('DEFAULT', 'ScrollUI')
+
+if(Scroll == "0"):
+    from UI.Ui_audio import Ui_Audio
+elif(Scroll == "1"):
+    from UI_test.Ui_audio import Ui_Audio
 
 
 class AudioInterface(QWidget, Ui_Audio):

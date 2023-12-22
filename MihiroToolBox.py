@@ -4,7 +4,7 @@ import configparser
 
 from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QIcon, QPixmap
-from PyQt5.QtWidgets import QApplication, QWidget, QSplashScreen
+from PyQt5.QtWidgets import QApplication, QWidget, QSplashScreen, QDesktopWidget
 
 from qfluentwidgets import SplitFluentWindow, FluentIcon, NavigationItemPosition, setTheme, Theme
 
@@ -21,7 +21,16 @@ class MihiroToolBox(SplitFluentWindow):
         super().__init__()
         self.setWindowTitle('MihiroToolBox')
         self.setWindowIcon(QIcon('img/logo.png'))
-        self.move(500, 75)
+        
+        # 设置默认大小
+        self.resize(880,880)
+        
+        # 调整窗口在屏幕中央显示
+        center_pointer = QDesktopWidget().availableGeometry().center() 
+        x = center_pointer.x() 
+        y = center_pointer.y()
+        old_x,oldy, width, height = self.frameGeometry().getRect() 
+        self.move(int(x - width / 2), int(y - height / 2))
 
         # 添加视频子界面
         self.VideoInterface = VideoInterface(self)

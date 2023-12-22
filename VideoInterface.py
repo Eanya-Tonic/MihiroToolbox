@@ -8,8 +8,17 @@ from functools import partial
 import os
 from threading import Thread
 
+# 读取配置文件
+import configparser
+conf = configparser.ConfigParser()
 
-from UI.Ui_video import Ui_Video
+conf.read('config.ini')
+Scroll = conf.get('DEFAULT', 'ScrollUI')
+
+if(Scroll == "0"):
+    from UI.Ui_video import Ui_Video
+elif(Scroll == "1"):
+    from UI_test.Ui_video import Ui_Video
 
 
 class VideoInterface(QWidget, Ui_Video):
