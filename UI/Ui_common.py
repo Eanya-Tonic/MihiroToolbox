@@ -9,6 +9,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from utils.MLineEdit import MLineEdit
 
 
 class Ui_Common(object):
@@ -60,7 +61,7 @@ class Ui_Common(object):
         self.AudioInputLabel.setFont(font)
         self.AudioInputLabel.setObjectName("AudioInputLabel")
         self.AudioInputBox.addWidget(self.AudioInputLabel, 0, 0, 1, 1)
-        self.AudioInputLine = LineEdit(self.PicCard)
+        self.AudioInputLine = MLineEdit(self.PicCard)
         self.AudioInputLine.setEnabled(True)
         self.AudioInputLine.setClearButtonEnabled(True)
         self.AudioInputLine.setObjectName("AudioInputLine")
@@ -80,7 +81,7 @@ class Ui_Common(object):
         self.VideoOutputLabel_2.setFont(font)
         self.VideoOutputLabel_2.setObjectName("VideoOutputLabel_2")
         self.VideoOutputBox_2.addWidget(self.VideoOutputLabel_2, 0, 0, 1, 1)
-        self.VideoOutputLine_2 = LineEdit(self.PicCard)
+        self.VideoOutputLine_2 = MLineEdit(self.PicCard)
         self.VideoOutputLine_2.setEnabled(True)
         self.VideoOutputLine_2.setClearButtonEnabled(True)
         self.VideoOutputLine_2.setObjectName("VideoOutputLine_2")
@@ -100,7 +101,7 @@ class Ui_Common(object):
         self.InputLabel.setFont(font)
         self.InputLabel.setObjectName("InputLabel")
         self.PicInputBox.addWidget(self.InputLabel, 0, 0, 1, 1)
-        self.InputLine = LineEdit(self.PicCard)
+        self.InputLine = MLineEdit(self.PicCard)
         self.InputLine.setEnabled(True)
         self.InputLine.setClearButtonEnabled(True)
         self.InputLine.setObjectName("InputLine")
@@ -227,7 +228,7 @@ class Ui_Common(object):
         self.VideoInputLabel.setFont(font)
         self.VideoInputLabel.setObjectName("VideoInputLabel")
         self.VideoInputBox.addWidget(self.VideoInputLabel, 0, 0, 1, 1)
-        self.VideoInputLine = LineEdit(self.VideoClipCard)
+        self.VideoInputLine = MLineEdit(self.VideoClipCard)
         self.VideoInputLine.setEnabled(True)
         self.VideoInputLine.setClearButtonEnabled(True)
         self.VideoInputLine.setObjectName("VideoInputLine")
@@ -247,7 +248,7 @@ class Ui_Common(object):
         self.VideoOutputLabel.setFont(font)
         self.VideoOutputLabel.setObjectName("VideoOutputLabel")
         self.VideoOutputBox.addWidget(self.VideoOutputLabel, 0, 0, 1, 1)
-        self.VideoOutputLine = LineEdit(self.VideoClipCard)
+        self.VideoOutputLine = MLineEdit(self.VideoClipCard)
         self.VideoOutputLine.setEnabled(True)
         self.VideoOutputLine.setClearButtonEnabled(True)
         self.VideoOutputLine.setObjectName("VideoOutputLine")

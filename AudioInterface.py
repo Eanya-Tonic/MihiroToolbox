@@ -35,6 +35,10 @@ class AudioInterface(QWidget, Ui_Audio):
         self.Outputbutton.clicked.connect(
             partial(self.FileSelect, self.OutputLine, 0))
         
+        # 自动填充
+        self.InputLine.textChanged.connect(
+            partial(self.AutoFill, self.InputLine, self.OutputLine))
+        
         # 压制选项
         self.ProcessButton.clicked.connect(self.ProcessFunc)
         self.ProcessButton.setWindowIconText("")
@@ -49,29 +53,33 @@ class AudioInterface(QWidget, Ui_Audio):
         if dir.exec_():      # 判断是否选择了文件
             FilePath = dir.selectedFiles()
             TargetLine.setText(FilePath[0])
+        
+    # 自动填充函数
+    def AutoFill(self, SourceLine, TargetLine):
+        FilePath = SourceLine.text()
+        if FilePath == "":
+            return
+        FileExt = os.path.splitext(FilePath)[1]
+        FilePath = os.path.splitext(FilePath)[0]
+        NewFilePath = FilePath + '_output'
 
-            if AutoFill != 0:
-                FileExt = os.path.splitext(FilePath[0])[1]
-                FilePath = os.path.splitext(FilePath[0])[0]
-                NewFilePath = FilePath + '_output'
+        # 根据编码器选择后缀
+        if(self.EncoderChioce.text() == 'ACC'):
+            NewFilePath = NewFilePath + '.m4a'
+        elif(self.EncoderChioce.text() == 'TTA'):
+            NewFilePath = NewFilePath + '.tta'
+        elif(self.EncoderChioce.text() == 'WAV'):
+            NewFilePath = NewFilePath + '.wav'
+        elif(self.EncoderChioce.text() == 'ALAC'):
+            NewFilePath = NewFilePath + '.m4a'
+        elif(self.EncoderChioce.text() == 'FLAC'):
+            NewFilePath = NewFilePath + '.flac'
+        elif(self.EncoderChioce.text() == 'AC3'):
+            NewFilePath = NewFilePath + '.ac3'
+        elif(self.EncoderChioce.text() == 'MP3'):
+            NewFilePath = NewFilePath + '.mp3'
 
-                # 根据编码器选择后缀
-                if(self.EncoderChioce.text() == 'ACC'):
-                    NewFilePath = NewFilePath + '.m4a'
-                elif(self.EncoderChioce.text() == 'TTA'):
-                    NewFilePath = NewFilePath + '.tta'
-                elif(self.EncoderChioce.text() == 'WAV'):
-                    NewFilePath = NewFilePath + '.wav'
-                elif(self.EncoderChioce.text() == 'ALAC'):
-                    NewFilePath = NewFilePath + '.m4a'
-                elif(self.EncoderChioce.text() == 'FLAC'):
-                    NewFilePath = NewFilePath + '.flac'
-                elif(self.EncoderChioce.text() == 'AC3'):
-                    NewFilePath = NewFilePath + '.ac3'
-                elif(self.EncoderChioce.text() == 'MP3'):
-                    NewFilePath = NewFilePath + '.mp3'
-
-                AutoFill.setText(NewFilePath)
+        TargetLine.setText(NewFilePath)
                 
     # 去除文件后缀名用于处理
     def RemoveExt(self, FilePath):

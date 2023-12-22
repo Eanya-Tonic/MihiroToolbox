@@ -34,11 +34,16 @@ class VideoInterface(QWidget, Ui_Video):
 
         # 文件选项
         self.InputButton.clicked.connect(
-            partial(self.FileSelect, self.InputLine, self.OutputLine))
+            partial(self.FileSelect, self.InputLine))
         self.Outputbutton.clicked.connect(
-            partial(self.FileSelect, self.OutputLine, 0))
+            partial(self.FileSelect, self.OutputLine))
         self.Outputbutton_2.clicked.connect(
-            partial(self.FileSelect, self.TextLine, 0))
+            partial(self.FileSelect, self.TextLine))
+        
+        # 文件自动填充
+        self.InputLine.textChanged.connect(
+             partial(self.AutoFill, self.InputLine, self.OutputLine))
+        
 
         # 分辨率选项
         self.WidthNum.setDisabled(1)
@@ -52,7 +57,7 @@ class VideoInterface(QWidget, Ui_Video):
         self.ProgressBar.setVisible(0)
 
         # 硬件加速
-        self.HardAccler.addItem("软解")
+        self.HardAccler.addItem("软件")
         self.HardAccler.addItem("Nvidia")
         self.HardAccler.addItem("AMD")
         self.HardAccler.addItem("Intel")
@@ -60,18 +65,22 @@ class VideoInterface(QWidget, Ui_Video):
         self.HardAccler.setDisabled(1)
 
     # 文件选择函数
-    def FileSelect(self, TargetLine, AutoFill):
+    def FileSelect(self, TargetLine):
         dir = QFileDialog()
         dir.setDirectory(os.getcwd())
         if dir.exec_():      # 判断是否选择了文件
             FilePath = dir.selectedFiles()
             TargetLine.setText(FilePath[0])
-
-            if AutoFill != 0:
-                FileExt = os.path.splitext(FilePath[0])[1]
-                FilePath = os.path.splitext(FilePath[0])[0]
-                NewFilePath = FilePath + '_output.mp4'
-                AutoFill.setText(NewFilePath)
+    
+    # 自动填充函数
+    def AutoFill(self, SourceLine, TargetLine):
+        FilePath = SourceLine.text()
+        if FilePath == "":
+            return
+        FileExt = os.path.splitext(FilePath)[1]
+        FilePath = os.path.splitext(FilePath)[0]
+        NewFilePath = FilePath + '_output.mp4'
+        TargetLine.setText(NewFilePath)
 
     # 自定义分辨率控制
     def ResolutionChange(self):

@@ -9,6 +9,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from utils.MLineEdit import MLineEdit
 
 
 class Ui_Video(object):
@@ -233,7 +234,7 @@ class Ui_Video(object):
         self.inputLabel.setFont(font)
         self.inputLabel.setObjectName("inputLabel")
         self.VIdeoIn.addWidget(self.inputLabel, 0, 0, 1, 1)
-        self.InputLine = LineEdit(self.FileBox)
+        self.InputLine = MLineEdit(self.FileBox)
         self.InputLine.setEnabled(True)
         self.InputLine.setClearButtonEnabled(True)
         self.InputLine.setObjectName("InputLine")
@@ -253,7 +254,7 @@ class Ui_Video(object):
         self.OutputLabel.setFont(font)
         self.OutputLabel.setObjectName("OutputLabel")
         self.VideoOut.addWidget(self.OutputLabel, 0, 0, 1, 1)
-        self.OutputLine = LineEdit(self.FileBox)
+        self.OutputLine = MLineEdit(self.FileBox)
         self.OutputLine.setEnabled(True)
         self.OutputLine.setClearButtonEnabled(True)
         self.OutputLine.setObjectName("OutputLine")
@@ -273,7 +274,7 @@ class Ui_Video(object):
         self.TextLabel.setFont(font)
         self.TextLabel.setObjectName("TextLabel")
         self.Text.addWidget(self.TextLabel, 0, 0, 1, 1)
-        self.TextLine = LineEdit(self.FileBox)
+        self.TextLine = MLineEdit(self.FileBox)
         self.TextLine.setEnabled(True)
         self.TextLine.setClearButtonEnabled(True)
         self.TextLine.setObjectName("TextLine")

@@ -122,6 +122,9 @@
               <property name="enabled">
                <bool>true</bool>
               </property>
+              <property name="clearButtonEnabled">
+               <bool>true</bool>
+              </property>
              </widget>
             </item>
             <item row="1" column="1">
@@ -155,6 +158,9 @@
               <property name="enabled">
                <bool>true</bool>
               </property>
+              <property name="clearButtonEnabled">
+               <bool>true</bool>
+              </property>
              </widget>
             </item>
             <item row="1" column="1">
@@ -186,6 +192,9 @@
             <item row="1" column="0">
              <widget class="LineEdit" name="OutputLine">
               <property name="enabled">
+               <bool>true</bool>
+              </property>
+              <property name="clearButtonEnabled">
                <bool>true</bool>
               </property>
              </widget>
@@ -268,6 +277,9 @@
               <property name="enabled">
                <bool>true</bool>
               </property>
+              <property name="clearButtonEnabled">
+               <bool>true</bool>
+              </property>
              </widget>
             </item>
             <item row="1" column="1">
@@ -308,6 +320,9 @@
               <property name="enabled">
                <bool>true</bool>
               </property>
+              <property name="clearButtonEnabled">
+               <bool>true</bool>
+              </property>
              </widget>
             </item>
             <item row="1" column="1">
@@ -341,6 +356,9 @@
               <property name="enabled">
                <bool>true</bool>
               </property>
+              <property name="clearButtonEnabled">
+               <bool>true</bool>
+              </property>
              </widget>
             </item>
             <item row="1" column="1">
@@ -372,6 +390,9 @@
             <item row="1" column="0">
              <widget class="LineEdit" name="InputLine_2">
               <property name="enabled">
+               <bool>true</bool>
+              </property>
+              <property name="clearButtonEnabled">
                <bool>true</bool>
               </property>
              </widget>
@@ -464,6 +485,9 @@
                 <property name="enabled">
                  <bool>true</bool>
                 </property>
+                <property name="clearButtonEnabled">
+                 <bool>true</bool>
+                </property>
                </widget>
               </item>
               <item row="1" column="1">
@@ -495,6 +519,9 @@
               <item row="1" column="0">
                <widget class="LineEdit" name="OutputLine_3">
                 <property name="enabled">
+                 <bool>true</bool>
+                </property>
+                <property name="clearButtonEnabled">
                  <bool>true</bool>
                 </property>
                </widget>

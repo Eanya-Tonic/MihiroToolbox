@@ -9,6 +9,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from utils.MLineEdit import MLineEdit
 
 
 class Ui_Audio(object):
@@ -60,9 +61,10 @@ class Ui_Audio(object):
         self.OutputLabel.setFont(font)
         self.OutputLabel.setObjectName("OutputLabel")
         self.OutputBox.addWidget(self.OutputLabel, 0, 0, 1, 1)
-        self.OutputLine = LineEdit(self.FileBox)
+        self.OutputLine = MLineEdit(self.FileBox)
         self.OutputLine.setEnabled(True)
         self.OutputLine.setObjectName("OutputLine")
+        self.OutputLine.setClearButtonEnabled(True)
         self.OutputBox.addWidget(self.OutputLine, 1, 0, 1, 1)
         self.Outputbutton = PushButton(self.FileBox)
         self.Outputbutton.setObjectName("Outputbutton")
@@ -79,9 +81,10 @@ class Ui_Audio(object):
         self.inputLabel.setFont(font)
         self.inputLabel.setObjectName("inputLabel")
         self.InputBox.addWidget(self.inputLabel, 0, 0, 1, 1)
-        self.InputLine = LineEdit(self.FileBox)
+        self.InputLine = MLineEdit(self.FileBox)
         self.InputLine.setEnabled(True)
         self.InputLine.setObjectName("InputLine")
+        self.InputLine.setClearButtonEnabled(True)
         self.InputBox.addWidget(self.InputLine, 1, 0, 1, 1)
         self.InputButton = PushButton(self.FileBox)
         self.InputButton.setObjectName("InputButton")

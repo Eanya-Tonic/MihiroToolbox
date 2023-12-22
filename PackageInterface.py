@@ -21,14 +21,18 @@ class PackageInterface(QWidget, Ui_Package):
         self.ProgressBar3.setVisible(0)
         
         # 文件选择
-        self.InputButton.clicked.connect(partial(self.FileSelect, self.InputLine, self.OutputLine, 1))
-        self.OutputButton.clicked.connect(partial(self.FileSelect, self.OutputLine, 0, 0))
-        self.AudioButton.clicked.connect(partial(self.FileSelect, self.AudioLine, 0, 0))
-        self.InputButton_2.clicked.connect(partial(self.FileSelect, self.InputLine_2, self.OutputLine_2, 2))
-        self.AudioButton_2.clicked.connect(partial(self.FileSelect, self.AudioLine_2, 0, 0))
-        self.OutputButton_2.clicked.connect(partial(self.FileSelect, self.OutputLine_2, 0, 0))
-        self.TextButton.clicked.connect(partial(self.FileSelect, self.TextLine, 0, 0))
-        self.OutputButton_3.clicked.connect(partial(self.FileSelect, self.OutputLine_3, 0, 0))
+        self.InputButton.clicked.connect(partial(self.FileSelect, self.InputLine))
+        self.OutputButton.clicked.connect(partial(self.FileSelect, self.OutputLine))
+        self.AudioButton.clicked.connect(partial(self.FileSelect, self.AudioLine))
+        self.InputButton_2.clicked.connect(partial(self.FileSelect, self.InputLine_2))
+        self.AudioButton_2.clicked.connect(partial(self.FileSelect, self.AudioLine_2))
+        self.OutputButton_2.clicked.connect(partial(self.FileSelect, self.OutputLine_2))
+        self.TextButton.clicked.connect(partial(self.FileSelect, self.TextLine))
+        self.OutputButton_3.clicked.connect(partial(self.FileSelect, self.OutputLine_3))
+        
+        # 文件自动填充
+        self.InputLine.textChanged.connect(partial(self.AutoFill, self.InputLine, self.OutputLine, 1))
+        self.InputLine_2.textChanged.connect(partial(self.AutoFill, self.InputLine_2, self.OutputLine_2, 2))
         
         # 粘贴地址
         self.PasteButton.clicked.connect(partial(self.Paste, self.AddressLine))
@@ -51,21 +55,25 @@ class PackageInterface(QWidget, Ui_Package):
         
         
     # 文件选择函数
-    def FileSelect(self, TargetLine, AutoFill, Type):
+    def FileSelect(self, TargetLine):
         dir = QFileDialog()
         dir.setDirectory(os.getcwd())
         if dir.exec_():      # 判断是否选择了文件
             FilePath = dir.selectedFiles()
             TargetLine.setText(FilePath[0])
-
-            if AutoFill != 0:
-                FileExt = os.path.splitext(FilePath[0])[1]
-                FilePath = os.path.splitext(FilePath[0])[0]
-                if(Type == 1):
-                    NewFilePath = FilePath + '_output.mp4'
-                elif(Type == 2):
-                    NewFilePath = FilePath + '_output.mkv'
-                AutoFill.setText(NewFilePath,)
+        
+    # 自动填充函数
+    def AutoFill(self, SourceLine, TargetLine, Type):
+        FilePath = SourceLine.text()
+        if FilePath == "":
+            return
+        FileExt = os.path.splitext(FilePath)[1]
+        FilePath = os.path.splitext(FilePath)[0]
+        if(Type == 1):
+            NewFilePath = FilePath + '_output.mp4'
+        elif(Type == 2):
+            NewFilePath = FilePath + '_output.mkv'
+        TargetLine.setText(NewFilePath)
 
     # 粘贴函数
     def Paste(self, TargetLine):

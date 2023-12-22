@@ -22,7 +22,7 @@ class CommonInterface(QWidget, Ui_Common):
         self.CrfNum.setValue(24)
 
         # 硬件加速
-        self.HardAccler.addItem("软解")
+        self.HardAccler.addItem("软件")
         self.HardAccler.addItem("Nvidia")
         self.HardAccler.addItem("AMD")
         self.HardAccler.addItem("Intel")
@@ -60,33 +60,43 @@ class CommonInterface(QWidget, Ui_Common):
 
         # 文件选择
         self.InputButton.clicked.connect(
-            partial(self.FileSelect, self.InputLine, 0, 0))
+            partial(self.FileSelect, self.InputLine))
         self.AudioInputButton.clicked.connect(
-            partial(self.FileSelect, self.AudioInputLine, self.VideoOutputLine_2, 1))
+            partial(self.FileSelect, self.AudioInputLine))
         self.VideoOutputButton_2.clicked.connect(
-            partial(self.FileSelect, self.VideoOutputLine_2, 0, 0))
+            partial(self.FileSelect, self.VideoOutputLine_2))
 
         self.VideoInputButton.clicked.connect(
-            partial(self.FileSelect, self.VideoInputLine, self.VideoOutputLine, 2))
+            partial(self.FileSelect, self.VideoInputLine))
         self.VideoOutputButton.clicked.connect(
-            partial(self.FileSelect, self.VideoOutputLine, 0, 0))
+            partial(self.FileSelect, self.VideoOutputLine))
+        
+        # 文件自动填充
+        self.VideoInputLine.textChanged.connect(
+            partial(self.AutoFill, self.VideoInputLine, self.VideoOutputLine, 2))
+        self.AudioInputLine.textChanged.connect(
+            partial(self.AutoFill, self.AudioInputLine, self.VideoOutputLine_2, 1))
 
     # 文件选择函数
-    def FileSelect(self, TargetLine, AutoFill, Type):
+    def FileSelect(self, TargetLine):
         dir = QFileDialog()
         dir.setDirectory(os.getcwd())
         if dir.exec_():      # 判断是否选择了文件
             FilePath = dir.selectedFiles()
             TargetLine.setText(FilePath[0])
-
-            if AutoFill != 0:
-                FileExt = os.path.splitext(FilePath[0])[1]
-                FilePath = os.path.splitext(FilePath[0])[0]
-                if(Type == 1):
-                    NewFilePath = FilePath + '_output.mp4'
-                elif(Type == 2):
-                    NewFilePath = FilePath + '_output' + FileExt
-                AutoFill.setText(NewFilePath,)
+    
+    # 自动填充函数
+    def AutoFill(self, SourceLine, TargetLine, Type):
+        FilePath = SourceLine.text()
+        if FilePath == "":
+            return
+        FileExt = os.path.splitext(FilePath)[1]
+        FilePath = os.path.splitext(FilePath)[0]
+        if(Type == 1):
+            NewFilePath = FilePath + '_output.mp4'
+        elif(Type == 2):
+            NewFilePath = FilePath + '_output' + FileExt
+        TargetLine.setText(NewFilePath)
 
     # 一图流控制
     def ProcessFunc(self):
