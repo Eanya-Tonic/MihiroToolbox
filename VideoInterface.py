@@ -66,7 +66,7 @@ class VideoInterface(QWidget, Ui_Video):
         self.ProgressBar.setVisible(0)
 
         # 硬件加速
-        self.HardAccler.addItem("软件")
+        self.HardAccler.addItem("软解")
         self.HardAccler.addItem("Nvidia")
         self.HardAccler.addItem("AMD")
         self.HardAccler.addItem("Intel")

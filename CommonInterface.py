@@ -32,7 +32,7 @@ class CommonInterface(QWidget, Ui_Common):
         self.CrfNum.setValue(24)
 
         # 硬件加速
-        self.HardAccler.addItem("软件")
+        self.HardAccler.addItem("软解")
         self.HardAccler.addItem("Nvidia")
         self.HardAccler.addItem("AMD")
         self.HardAccler.addItem("Intel")
