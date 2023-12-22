@@ -50,6 +50,7 @@ class AudioInterface(QWidget, Ui_Audio):
     '''
     输入: 选择文件的目标LineEdit
     输出: 无输出
+    描述: 选择文件函数, 与界面上的浏览按钮绑定, 用于把资源管理器读取的地址传回输入框
     '''
     def FileSelect(self, TargetLine):
         dir = QFileDialog()
@@ -62,6 +63,7 @@ class AudioInterface(QWidget, Ui_Audio):
     '''
     输入: 选择文件的源LineEdit, 自动同步的目标LineEdit
     输出: 无输出
+    描述: 根据输入框内容自动填充输出框
     '''
     def AutoFill(self, SourceLine, TargetLine):
         FilePath = SourceLine.text()
