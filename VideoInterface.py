@@ -32,6 +32,7 @@ class VideoInterface(QWidget, Ui_Video):
         self.EncoderType.addItem('x265')
 
         self.DepthChoice.addItem('压制音频')
+        self.DepthChoice.addItem('复制音频')
         self.DepthChoice.addItem('无音频')
 
         # 编码参数
@@ -158,6 +159,8 @@ class VideoInterface(QWidget, Ui_Video):
         # 设置音频
         if(self.DepthChoice.text() == "压制音频"):
             ProcessCmd += ""
+        elif(self.DepthChoice.text() == "复制音频"):
+            ProcessCmd += "-c:a copy "
         else:
             ProcessCmd += "-an "
 
