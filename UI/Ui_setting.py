@@ -203,7 +203,7 @@ class Ui_Form(object):
         self.FileTitle_2.setText(_translate("Form", "关于"))
         self.StrongBodyLabel.setText(_translate("Form", "真寻工具箱"))
         self.BodyLabel_2.setText(_translate("Form", "一个基于FFMPEG的开源GUI工具程序。"))
-        self.BodyLabel.setText(_translate("Form", "版本：Version 1.1"))
+        self.BodyLabel.setText(_translate("Form", "版本：Version 1.1.2"))
         self.HyperlinkLabel.setText(_translate("Form", "访问Github"))
         self.FileTitle.setText(_translate("Form", "界面设置"))
         self.LaunchCheck.setText(_translate("Form", "显示启动画面"))
