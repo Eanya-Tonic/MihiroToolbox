@@ -34,6 +34,7 @@ class VideoInterface(QWidget, Ui_Video):
         self.DepthChoice.addItem('压制音频')
         self.DepthChoice.addItem('复制音频')
         self.DepthChoice.addItem('无音频')
+        self.DepthChoice.currentIndexChanged.connect(self.AudioChange)
 
         # 编码参数
         self.KbpsLabel.setVisible(0)
@@ -54,6 +55,11 @@ class VideoInterface(QWidget, Ui_Video):
         self.InputLine.textChanged.connect(
              partial(self.AutoFill, self.InputLine, self.OutputLine))
         
+        # 音频选项
+        self.AudioSetTitle.setText("音频码率")
+        self.KbpsLabel1.setText("Kbps")
+        self.AudioNum.setValue(128)
+        self.AudioNum.setDecimals(0)
 
         # 分辨率选项
         self.WidthNum.setDisabled(1)
@@ -136,6 +142,20 @@ class VideoInterface(QWidget, Ui_Video):
             self.ParmsNum.setDecimals(0)
             # VBR支持硬件编码
             self.HardAccler.setDisabled(0)
+    
+    # 音频参数控制
+    '''
+    输入: 无输入
+    输出: 无输出
+    '''
+    def AudioChange(self):
+        # 压制音频控制码率
+        if(self.DepthChoice.text() == "压制音频"):
+            self.AudioNum.setDisabled(0)
+            pass
+        # 其他模式不可控制
+        else:
+            self.AudioNum.setDisabled(1)
 
     # 压制控制
     def ProcessFunc(self):
@@ -158,7 +178,7 @@ class VideoInterface(QWidget, Ui_Video):
         
         # 设置音频
         if(self.DepthChoice.text() == "压制音频"):
-            ProcessCmd += ""
+            ProcessCmd += "-b:a " + str(self.AudioNum.value()) +"k "
         elif(self.DepthChoice.text() == "复制音频"):
             ProcessCmd += "-c:a copy "
         else:
